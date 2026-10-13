@@ -10,8 +10,8 @@ import {
   type ErrorComponentProps,
 } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/react-start';
+import cormorantLatinUrl from '@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2?url';
 import dmSansLatinUrl from '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2?url';
-import bebasLatinUrl from '@fontsource/bebas-neue/files/bebas-neue-latin-400-normal.woff2?url';
 import { ThemeProvider } from 'next-themes';
 
 import { envConfigs } from '@/config';
@@ -73,7 +73,7 @@ export const Route = createRootRoute({
           rel: 'preload',
           as: 'font',
           type: 'font/woff2',
-          href: bebasLatinUrl,
+          href: cormorantLatinUrl,
           crossOrigin: 'anonymous',
         },
         {
@@ -86,6 +86,12 @@ export const Route = createRootRoute({
           // with the CSS and hero image; body text falls back to the system
           // sans (font-display: optional, so no layout shift either way).
           media: '(min-width: 601px)',
+        },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        {
+          rel: 'preconnect',
+          href: 'https://fonts.gstatic.com',
+          crossOrigin: 'anonymous',
         },
         { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
         { rel: 'apple-touch-icon', href: '/favicon.svg' },
@@ -105,7 +111,7 @@ function RootComponent() {
     <QueryClientProvider client={getQueryClient()}>
       <ThemeProvider
         attribute="class"
-        defaultTheme="dark"
+        defaultTheme="light"
         enableSystem={false}
         disableTransitionOnChange
       >
@@ -138,6 +144,9 @@ function RootComponent() {
   );
 }
 
+const SHIPPORI_CSS =
+  'https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&display=swap';
+
 function RootDocument({ children }: { children: ReactNode }) {
   return (
     <html lang={getLocale()} suppressHydrationWarning>
@@ -146,6 +155,14 @@ function RootDocument({ children }: { children: ReactNode }) {
       </head>
       <body className="font-sans antialiased">
         {children}
+        {/* Shippori Mincho (modelled on Meiji-era Tsukiji type) for CJK display
+            lines. Its CSS lists ~1200 unicode-range subsets, so it is injected
+            after parse: never render-blocking, and only on-screen glyphs load. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='${SHIPPORI_CSS}';document.head.appendChild(l);})();`,
+          }}
+        />
         <Scripts />
       </body>
     </html>

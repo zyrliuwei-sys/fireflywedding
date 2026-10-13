@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "fw-watch-garden",
+    "prompt": "Use case: illustration-story. Create a 4:5 portrait, full-bleed 2D Japanese anime illustration for a Firefly Wedding fan website. A silver-haired young adult noblewoman with pale pink eyes in an ivory kimono and a young adult black-haired man with violet eyes in a dark green kimono stand near a still garden pond in Meiji Japan at blue hour. Emotional romance, elegant anime faces, luminous golden fireflies, peonies and hand-painted trees. The scene must fill every edge. No text, no logo, no watermark, no borders."
+  },
+  {
+    "slug": "fw-cta-firefly-path",
+    "prompt": "Use case: illustration-story. Wide cinematic anime illustration for a Firefly Wedding fan website: a winding stone path through a Meiji-era garden beside a stream at midnight, thousands of delicate golden fireflies, distant silhouette of a silver-haired young adult woman in pale kimono walking beside a black-haired young adult man, characters on the right third, indigo sky and lush foliage, romantic suspense, hand-painted Japanese anime background, full bleed artwork, no border, no text. Render as polished 2D Japanese anime with delicate clean linework, hand-painted background, not photorealistic, no logo, no watermark. Aspect ratio wide 16:7."
+  },
+  {
+    "slug": "fw-watch-masthead",
+    "prompt": "Use case: illustration-story. Anime illustration for a Firefly Wedding fan website: Meiji-era Japanese coastal village at evening, moon reflected on the sea, lantern-lit traditional houses on a distant hillside, fireflies above reeds in the foreground, scenic establishing shot, beautiful hand-painted Japanese anime background, navy teal and warm gold lighting, full bleed artwork, no border, no text. Render as polished 2D Japanese anime with delicate clean linework, hand-painted background, not photorealistic, no logo, no watermark. Aspect ratio 5:4 landscape."
+  },
+  {
+    "slug": "fw-story-masthead",
+    "prompt": "Use case: illustration-story. Anime illustration for a Firefly Wedding fan website: Meiji-era noble estate veranda overlooking a spring garden, a silver-haired young adult noblewoman in an ivory and blush kimono seen from behind holding a folded letter, red peonies, delicate shoji screens, bittersweet romantic suspense, hand-painted Japanese anime background, detailed architecture, full bleed artwork, no border, no text. Render as polished 2D Japanese anime with delicate clean linework, hand-painted background, not photorealistic, no logo, no watermark. Aspect ratio 5:4 landscape."
+  },
+  {
+    "slug": "fw-character-masthead",
+    "prompt": "Use case: illustration-story. Anime illustration for a Firefly Wedding fan website: a silver-haired young adult woman with large pink eyes wearing an ivory kimono and a black-haired young adult man with violet eyes wearing a dark green kimono, expressive close double portrait side by side against a softly painted garden with drifting fireflies, detailed faces, elegant dramatic shoujo anime character art, no blood, full bleed artwork, no border, no text. Render as polished 2D Japanese anime with delicate clean linework, hand-painted background, not photorealistic, no logo, no watermark. Aspect ratio 5:4 landscape."
+  },
+  {
+    "slug": "fw-news-masthead",
+    "prompt": "Use case: illustration-story. Anime illustration for a Firefly Wedding fan website: intimate closeup of a Meiji-era writing desk with an open illustrated sketchbook showing kimono figures, brushes inkstone pale paper and a red peony, warm light from a paper lantern, window revealing fireflies over a midnight garden, hand-painted Japanese anime background, romantic editorial still life, illustration pages contain drawings only, no lettering, full bleed artwork, no border, no text. Render as polished 2D Japanese anime with delicate clean linework, hand-painted background, not photorealistic, no logo, no watermark. Aspect ratio 5:4 landscape."
+  }
+]

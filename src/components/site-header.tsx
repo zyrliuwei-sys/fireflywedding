@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
+import type React from 'react';
 import { ArrowRight, Menu, X } from 'lucide-react';
 
 import { useSession } from '@/core/auth/client';
@@ -8,8 +9,6 @@ import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
-import { LocaleSelector } from '@/components/locale-selector';
-import { SiteUserMenu } from '@/components/site-user-menu';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { buttonVariants } from '@/components/ui/button';
 
@@ -23,20 +22,35 @@ export interface NavLink {
 /** Off-site URLs render as plain <a>; internal paths use the locale-aware Link. */
 const isExternalHref = (href: string) => /^https?:\/\//.test(href);
 
+// The account menu (Base UI dropdown, ~130 KB) only matters once signed in,
+// so it is split out of the public pages' initial bundle.
+const SiteUserMenu = lazy(() =>
+  import('@/components/site-user-menu').then((mod) => ({
+    default: mod.SiteUserMenu,
+  }))
+);
+
 export function SiteHeader({
   navLinks,
   logoAlt,
+  cta,
+  banner,
 }: {
   navLinks?: NavLink[];
   logoAlt: string;
+  /** Primary call to action — replaces the default "Get started" button. */
+  cta?: { href: string; label: string };
+  /** Thin announcement strip rendered above the nav bar. */
+  banner?: React.ReactNode;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { data: session } = useSession();
   const user = session?.user;
 
   return (
-    <header className="bg-background/95 border-border sticky top-0 z-50 w-full border-b backdrop-blur-sm">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-50 w-full">
+      {banner}
+      <div className="bg-background/80 border-border/60 relative flex h-14 items-center justify-between border-b pl-4 backdrop-blur-md sm:pl-6">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5">
           <img
@@ -44,15 +58,15 @@ export function SiteHeader({
             alt={logoAlt}
             width={512}
             height={512}
-            className="size-8 rounded-full"
+            className="size-7 rounded-[7px] dark:ring-1 dark:ring-white/15"
           />
-          <span className="text-base font-bold tracking-tight">
+          <span className="text-[15px] font-semibold tracking-tight">
             {envConfigs.app_name}
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="ml-auto hidden items-center gap-1 md:flex">
           {navLinks?.map((link) =>
             isExternalHref(link.href) ? (
               <a
@@ -60,7 +74,7 @@ export function SiteHeader({
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                className="hover:bg-foreground/5 rounded px-2.5 py-1.5 text-xs tracking-[0.04em] uppercase transition-colors"
               >
                 {link.label}
               </a>
@@ -69,7 +83,7 @@ export function SiteHeader({
                 key={link.href}
                 href={link.href}
                 target={link.external ? '_blank' : undefined}
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                className="hover:bg-foreground/5 rounded px-2.5 py-1.5 text-xs tracking-[0.04em] uppercase transition-colors"
               >
                 {link.label}
               </Link>
@@ -78,26 +92,50 @@ export function SiteHeader({
         </nav>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-3 md:flex">
-          <LocaleSelector />
+        <div className="hidden h-full items-center gap-2 pl-3 md:flex">
           <ThemeToggle />
           {user ? (
-            <SiteUserMenu
-              name={user.name || 'User'}
-              email={user.email}
-              image={user.image}
-            />
+            <Suspense fallback={<span className="size-8" />}>
+              <SiteUserMenu
+                name={user.name || 'User'}
+                email={user.email}
+                image={user.image}
+              />
+            </Suspense>
           ) : (
-            <Link href="/settings" className={cn(buttonVariants(), 'gap-1.5')}>
-              {m['common.nav.get_started']()}
+            cta && (
+              <Link
+                href="/sign-in"
+                className="border-foreground/20 hover:bg-foreground/5 mr-2 rounded-md border px-3 py-1.5 text-xs tracking-[0.04em] uppercase transition-colors"
+              >
+                {m['common.nav.sign_in']()}
+              </Link>
+            )
+          )}
+          {cta ? (
+            <Link
+              href={cta.href}
+              className="text-primary-foreground bg-primary flex h-full items-center gap-2 rounded-bl-lg px-6 text-sm tracking-[0.04em] uppercase transition-[filter] hover:brightness-95"
+            >
+              {cta.label}
               <ArrowRight className="size-4" />
             </Link>
+          ) : (
+            !user && (
+              <Link
+                href="/settings"
+                className={cn(buttonVariants(), 'mr-4 gap-1.5')}
+              >
+                {m['common.nav.get_started']()}
+                <ArrowRight className="size-4" />
+              </Link>
+            )
           )}
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="p-2 md:hidden"
+          className="mr-2 p-2 md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileOpen}
@@ -108,7 +146,7 @@ export function SiteHeader({
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-border border-t px-4 pt-2 pb-4 md:hidden">
+        <div className="bg-background border-border border-b px-4 pt-2 pb-4 md:hidden">
           <nav className="flex flex-col gap-2">
             {navLinks?.map((link) =>
               isExternalHref(link.href) ? (
@@ -136,23 +174,45 @@ export function SiteHeader({
             )}
           </nav>
           <div className="border-border mt-3 flex items-center gap-2 border-t pt-3">
-            <LocaleSelector />
             <ThemeToggle />
             <div className="flex-1" />
             {user ? (
-              <SiteUserMenu
-                name={user.name || 'User'}
-                email={user.email}
-                image={user.image}
-              />
+              <Suspense fallback={<span className="size-8" />}>
+                <SiteUserMenu
+                  name={user.name || 'User'}
+                  email={user.email}
+                  image={user.image}
+                />
+              </Suspense>
             ) : (
+              cta && (
+                <Link
+                  href="/sign-in"
+                  className={cn(buttonVariants({ variant: 'outline' }))}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {m['common.nav.sign_in']()}
+                </Link>
+              )
+            )}
+            {cta ? (
               <Link
-                href="/settings"
+                href={cta.href}
                 className={cn(buttonVariants(), 'gap-1.5')}
                 onClick={() => setMobileOpen(false)}
               >
-                {m['common.nav.get_started']()}
+                {cta.label}
               </Link>
+            ) : (
+              !user && (
+                <Link
+                  href="/settings"
+                  className={cn(buttonVariants(), 'gap-1.5')}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {m['common.nav.get_started']()}
+                </Link>
+              )
             )}
           </div>
         </div>

@@ -6,8 +6,31 @@ import { m } from '@/paraglide/messages.js';
 const STATIC_PAGES: { path: string; title: string; description: string }[] = [
   {
     path: '',
-    title: 'Hotel Lobby AI Filter',
-    description: 'Two-person duet planning and prompt guide',
+    title: 'Firefly Wedding (Hotaru no Yomeiri) fan hub',
+    description:
+      'Where to watch the 2026 anime, episode schedule, story, characters and news',
+  },
+  {
+    path: '/watch',
+    title: 'Where to watch Firefly Wedding anime',
+    description:
+      'Streaming platforms by region and the weekly episode schedule',
+  },
+  {
+    path: '/story',
+    title: 'Firefly Wedding story guide',
+    description:
+      'Spoiler-light premise, story beats, setting and manga overview',
+  },
+  {
+    path: '/characters',
+    title: 'Firefly Wedding characters',
+    description: 'Main characters and Japanese voice cast',
+  },
+  {
+    path: '/news',
+    title: 'Firefly Wedding anime news',
+    description: 'Timeline of announcements, releases and milestones',
   },
   {
     path: '/privacy-policy',
@@ -18,11 +41,6 @@ const STATIC_PAGES: { path: string; title: string; description: string }[] = [
     path: '/terms-of-service',
     title: 'Terms of Service',
     description: 'Terms of use',
-  },
-  {
-    path: '/acceptable-use-policy',
-    title: 'Acceptable Use Policy',
-    description: 'Content rules, child safety and how to report violations',
   },
 ];
 

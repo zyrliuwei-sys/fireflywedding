@@ -5,7 +5,11 @@
 
 :root {
   --font-sans: 'DM Sans Variable', 'PingFang SC', sans-serif;
-  --font-serif-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-serif-display:
+    'Cormorant Garamond Variable', 'Cormorant Garamond', Garamond, serif;
+  --font-mincho:
+    'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Songti SC',
+    'Noto Serif SC', serif;
 }
 
 @theme inline {
@@ -57,41 +61,98 @@
 }
 
 @layer base {
-  :root,
+  /* Firefly Wedding brand palette (Meiji dye names):
+       和紙 washi  – cool grey paper background
+       墨   sumi   – indigo-ink foreground
+       萤   hotaru – firefly glow, the ONE accent (CTA fills, the lit item)
+       藍   ai     – indigo dye for links, threads and hairlines
+       鼠   nezumi – muted text
+     Night imagery lives inside framed media only (--night), never as a
+     full-bleed section, so the page keeps one theme. */
+  :root {
+    --background: oklch(0.968 0.004 250);
+    --foreground: oklch(0.21 0.03 265);
+    --card: oklch(0.992 0.002 250);
+    --card-foreground: oklch(0.21 0.03 265);
+    --popover: oklch(0.992 0.002 250);
+    --popover-foreground: oklch(0.21 0.03 265);
+    --primary: oklch(0.93 0.14 115);
+    --primary-foreground: oklch(0.21 0.03 265);
+    --secondary: oklch(0.935 0.007 250);
+    --secondary-foreground: oklch(0.21 0.03 265);
+    --muted: oklch(0.935 0.007 250);
+    --muted-foreground: oklch(0.5 0.014 260);
+    --accent: oklch(0.925 0.01 255);
+    --accent-foreground: oklch(0.21 0.03 265);
+    --destructive: oklch(0.55 0.19 25);
+    --destructive-foreground: oklch(0.98 0 0);
+    --border: oklch(0.885 0.01 255);
+    --input: oklch(0.885 0.01 255);
+    --ring: oklch(0.42 0.07 262);
+    --chart-1: oklch(0.42 0.07 262);
+    --chart-2: oklch(0.85 0.14 115);
+    --chart-3: oklch(0.6 0.04 262);
+    --chart-4: oklch(0.5 0.014 260);
+    --chart-5: oklch(0.75 0.05 200);
+    --radius: 0.75rem;
+    --sidebar: oklch(0.955 0.005 250);
+    --sidebar-foreground: oklch(0.21 0.03 265);
+    --sidebar-primary: oklch(0.21 0.03 265);
+    --sidebar-primary-foreground: oklch(0.968 0.004 250);
+    --sidebar-accent: oklch(0.925 0.01 255);
+    --sidebar-accent-foreground: oklch(0.21 0.03 265);
+    --sidebar-border: oklch(0.885 0.01 255);
+    --sidebar-ring: oklch(0.42 0.07 262);
+
+    --ai: oklch(0.42 0.07 262);
+    --canvas: oklch(0.94 0.007 250);
+    --canvas-grid: oklch(0.42 0.07 262 / 0.07);
+    --glow: oklch(0.93 0.14 115);
+    --night: oklch(0.19 0.025 268);
+    --night-2: oklch(0.24 0.028 268);
+    --wire: oklch(0.42 0.07 262 / 0.28);
+    --pulse: oklch(0.74 0.17 118);
+  }
+
   .dark {
-    --background: oklch(0.15 0.009 42);
-    --foreground: oklch(0.94 0.013 78);
-    --card: oklch(0.2 0.012 44);
-    --card-foreground: oklch(0.94 0.013 78);
-    --popover: oklch(0.2 0.012 44);
-    --popover-foreground: oklch(0.94 0.013 78);
-    --primary: oklch(0.73 0.09 57);
-    --primary-foreground: oklch(0.15 0.009 42);
-    --secondary: oklch(0.25 0.013 43);
-    --secondary-foreground: oklch(0.94 0.013 78);
-    --muted: oklch(0.25 0.013 43);
-    --muted-foreground: oklch(0.71 0.021 67);
-    --accent: oklch(0.3 0.02 44);
-    --accent-foreground: oklch(0.96 0.012 78);
+    --background: oklch(0.185 0.022 268);
+    --foreground: oklch(0.94 0.008 250);
+    --card: oklch(0.225 0.025 268);
+    --card-foreground: oklch(0.94 0.008 250);
+    --popover: oklch(0.225 0.025 268);
+    --popover-foreground: oklch(0.94 0.008 250);
+    --primary: oklch(0.93 0.14 115);
+    --primary-foreground: oklch(0.21 0.03 265);
+    --secondary: oklch(0.26 0.026 268);
+    --secondary-foreground: oklch(0.94 0.008 250);
+    --muted: oklch(0.26 0.026 268);
+    --muted-foreground: oklch(0.72 0.015 260);
+    --accent: oklch(0.28 0.028 268);
+    --accent-foreground: oklch(0.94 0.008 250);
     --destructive: oklch(0.62 0.19 25);
     --destructive-foreground: oklch(0.98 0 0);
-    --border: oklch(0.34 0.019 44);
-    --input: oklch(0.34 0.019 44);
-    --ring: oklch(0.73 0.09 57);
-    --chart-1: oklch(0.73 0.09 57);
-    --chart-2: oklch(0.61 0.08 38);
-    --chart-3: oklch(0.78 0.03 79);
-    --chart-4: oklch(0.55 0.035 170);
-    --chart-5: oklch(0.63 0.055 26);
-    --radius: 0.25rem;
-    --sidebar: oklch(0.17 0.01 42);
-    --sidebar-foreground: oklch(0.94 0.013 78);
-    --sidebar-primary: oklch(0.73 0.09 57);
-    --sidebar-primary-foreground: oklch(0.15 0.009 42);
-    --sidebar-accent: oklch(0.27 0.016 44);
-    --sidebar-accent-foreground: oklch(0.94 0.013 78);
-    --sidebar-border: oklch(0.34 0.019 44);
-    --sidebar-ring: oklch(0.73 0.09 57);
+    --border: oklch(0.32 0.025 268);
+    --input: oklch(0.32 0.025 268);
+    --ring: oklch(0.78 0.07 262);
+    --chart-1: oklch(0.78 0.07 262);
+    --chart-2: oklch(0.9 0.14 115);
+    --chart-3: oklch(0.6 0.04 262);
+    --chart-4: oklch(0.72 0.015 260);
+    --chart-5: oklch(0.75 0.05 200);
+    --sidebar: oklch(0.2 0.022 268);
+    --sidebar-foreground: oklch(0.94 0.008 250);
+    --sidebar-primary: oklch(0.93 0.14 115);
+    --sidebar-primary-foreground: oklch(0.21 0.03 265);
+    --sidebar-accent: oklch(0.28 0.028 268);
+    --sidebar-accent-foreground: oklch(0.94 0.008 250);
+    --sidebar-border: oklch(0.32 0.025 268);
+    --sidebar-ring: oklch(0.78 0.07 262);
+
+    --ai: oklch(0.78 0.07 262);
+    --canvas: oklch(0.205 0.024 268);
+    --canvas-grid: oklch(0.78 0.07 262 / 0.07);
+    --wire: oklch(0.78 0.07 262 / 0.3);
+    --pulse: oklch(0.93 0.14 115);
   }
 }
 
@@ -166,5 +227,233 @@
     .animate-drift-c {
       animation: none !important;
     }
+  }
+}
+
+/* ── Firefly Wedding signature utilities ───────────────────────────────── */
+@utility fw-display {
+  font-family: var(--font-serif-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+/* Display line set in Mincho for CJK locales (zh headings). */
+:lang(zh) .fw-display,
+.fw-display:lang(zh) {
+  font-family: var(--font-mincho);
+  letter-spacing: 0.02em;
+  line-height: 1.12;
+}
+@utility fw-mincho {
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+@utility fw-label {
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+@utility fw-canvas {
+  background-color: var(--canvas);
+  background-image:
+    linear-gradient(var(--canvas-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--canvas-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@layer base {
+  @keyframes fw-wire {
+    to {
+      stroke-dashoffset: -400;
+    }
+  }
+  .fw-wire-pulse {
+    stroke: var(--pulse);
+    stroke-dasharray: 6 394;
+    animation: fw-wire 5s linear infinite;
+    filter: drop-shadow(0 0 3px var(--pulse));
+  }
+  .fw-reveal {
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .fw-reveal[data-visible='false'] {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fw-wire-pulse,
+    .fw-rise,
+    .fw-intro,
+    .fw-draw {
+      animation: none !important;
+    }
+    .fw-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+/* ── Entrance choreography (hero) ─────────────────────────────────────── */
+@layer base {
+  @keyframes fw-rise {
+    from {
+      transform: translate3d(0, 105%, 0);
+    }
+    to {
+      transform: none;
+    }
+  }
+  @keyframes fw-intro {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 18px, 0) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fw-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  /* A line of display type that rises out of its own baseline. */
+  .fw-mask {
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+    vertical-align: bottom;
+  }
+  .fw-rise {
+    display: inline-block;
+    animation: fw-rise 1.1s cubic-bezier(0.19, 1, 0.22, 1) both;
+  }
+  .fw-intro {
+    animation: fw-intro 0.9s cubic-bezier(0.19, 1, 0.22, 1) both;
+  }
+  .fw-draw {
+    stroke-dasharray: 1;
+    animation: fw-draw 1.2s cubic-bezier(0.65, 0, 0.35, 1) both;
+  }
+}
+
+/* ── Scroll + pointer motion ───────────────────────────────────────────── */
+@layer base {
+  .fw-word {
+    display: inline-block;
+    transition: transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .fw-words[data-visible='false'] .fw-word {
+    transform: translate3d(0, 105%, 0);
+  }
+
+  /* Framed images drift a few px against the pointer (vars set in JS). */
+  .fw-parallax {
+    transform: scale(1.06)
+      translate3d(calc(var(--px, 0) * -10px), calc(var(--py, 0) * -8px), 0);
+    transition: transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
+  }
+
+  /* The story thread fills with firefly light as it scrolls through. */
+  .fw-thread-fill {
+    transform-origin: top;
+    transform: scaleY(1);
+  }
+  @supports (animation-timeline: view()) {
+    .fw-thread-fill {
+      animation: fw-fill linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 55%;
+    }
+    .fw-thread-dot {
+      animation: fw-dot linear both;
+      animation-timeline: view();
+      animation-range: entry 40% cover 45%;
+    }
+  }
+  @keyframes fw-fill {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+  @keyframes fw-dot {
+    from {
+      background-color: var(--background);
+      box-shadow: 0 0 0 0 transparent;
+    }
+    to {
+      background-color: var(--pulse);
+      border-color: transparent;
+      box-shadow: 0 0 0 5px color-mix(in oklab, var(--glow) 40%, transparent);
+    }
+  }
+
+  /* Page transitions (View Transitions API, progressive). */
+  ::view-transition-old(root) {
+    animation: fw-vt-out 0.35s cubic-bezier(0.4, 0, 1, 1) both;
+  }
+  ::view-transition-new(root) {
+    animation: fw-vt-in 0.6s cubic-bezier(0.19, 1, 0.22, 1) both;
+  }
+  @keyframes fw-vt-out {
+    to {
+      opacity: 0;
+      transform: translate3d(0, -12px, 0);
+    }
+  }
+  @keyframes fw-vt-in {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fw-word,
+    .fw-parallax {
+      transition: none !important;
+      transform: none !important;
+    }
+    .fw-thread-fill,
+    .fw-thread-dot {
+      animation: none !important;
+    }
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none !important;
+    }
+  }
+}
+
+/* Keyboard focus: one visible, on-brand ring everywhere. */
+@layer base {
+  :where(
+    a,
+    button,
+    [role='button'],
+    input,
+    select,
+    textarea,
+    summary
+  ):focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 6px;
   }
 }

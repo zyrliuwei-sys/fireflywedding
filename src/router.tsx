@@ -9,6 +9,8 @@ export function getRouter() {
     routeTree,
     defaultPreload: 'intent',
     scrollRestoration: true,
+    // Cross-page fade/slide via the View Transitions API (no-op where unsupported).
+    defaultViewTransition: true,
     // Paraglide owns locale prefixes: incoming URLs are de-localized before
     // matching (routes are locale-free), outgoing hrefs get re-localized.
     rewrite: {

@@ -3,7 +3,6 @@ import type { ComponentType, ReactNode, SVGProps } from 'react';
 import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { cn } from '@/lib/utils';
-import { LocaleSelector } from '@/components/locale-selector';
 
 export interface FooterColumn {
   title: string;
@@ -26,6 +25,8 @@ export function SiteFooter({
   socials,
   copyright,
   badges,
+  disclaimer,
+  wordmark,
 }: {
   tagline?: string;
   columns?: FooterColumn[];
@@ -33,14 +34,18 @@ export function SiteFooter({
   copyright?: string;
   /** Rendered above the socials row, e.g. admin-managed footer badges. */
   badges?: ReactNode;
+  /** Small print under the bottom bar (e.g. a fan-site / trademark notice). */
+  disclaimer?: string;
+  /** Oversized brand wordmark set across the full width at the very bottom. */
+  wordmark?: string;
 }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-background text-foreground border-border border-t">
+    <footer className="bg-background text-foreground border-border overflow-hidden border-t">
       <div className="mx-auto max-w-7xl px-6 pt-14 pb-6 sm:px-10 sm:pt-16 lg:px-16">
         {tagline && (
-          <p className="mb-12 max-w-2xl font-serif text-4xl leading-[1] tracking-wide sm:text-5xl">
+          <p className="fw-display mb-12 max-w-3xl text-5xl sm:text-7xl">
             {tagline}
           </p>
         )}
@@ -96,7 +101,7 @@ export function SiteFooter({
 
         {badges}
 
-        {/* Socials + language row */}
+        {/* Socials row */}
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           {socials && socials.length > 0 ? (
             <div className="flex items-center gap-5">
@@ -116,10 +121,6 @@ export function SiteFooter({
           ) : (
             <div />
           )}
-          <LocaleSelector
-            variant="pill"
-            className="border-border text-foreground hover:bg-accent hover:text-accent-foreground"
-          />
         </div>
 
         {/* Bottom bar */}
@@ -129,7 +130,20 @@ export function SiteFooter({
               `© ${year} ${envConfigs.app_name}. All rights reserved.`}
           </span>
         </div>
+        {disclaimer && (
+          <p className="text-muted-foreground mt-5 max-w-3xl text-xs leading-relaxed">
+            {disclaimer}
+          </p>
+        )}
       </div>
+      {wordmark && (
+        <p
+          aria-hidden
+          className="fw-display text-foreground/90 overflow-hidden px-4 pt-6 text-center text-[12.4vw] leading-[0.78] whitespace-nowrap select-none sm:px-6"
+        >
+          {wordmark}
+        </p>
+      )}
     </footer>
   );
 }

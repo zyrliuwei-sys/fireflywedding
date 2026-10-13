@@ -1,3 +1,5 @@
+import { envConfigs } from '@/config';
+import { OFFICIAL_ANIME_URL, OFFICIAL_MANGA_URL } from '@/config/firefly';
 import { m } from '@/paraglide/messages.js';
 import { FooterBadgeList } from '@/components/footer-badge-list';
 import { SiteFooter, type FooterColumn } from '@/components/site-footer';
@@ -5,36 +7,41 @@ import { SiteFooter, type FooterColumn } from '@/components/site-footer';
 export function Footer() {
   const columns: FooterColumn[] = [
     {
-      title: m['landing.footer.feature'](),
+      title: m['fw.footer.explore'](),
       links: [
-        { label: m['hotel.nav.create'](), href: '/#create' },
-        { label: m['hotel.nav.how'](), href: '/#how' },
+        { label: m['fw.nav.watch'](), href: '/watch' },
+        { label: m['fw.nav.story'](), href: '/story' },
+        { label: m['fw.nav.characters'](), href: '/characters' },
+        { label: m['fw.nav.news'](), href: '/news' },
       ],
     },
     {
-      title: m['landing.footer.resources'](),
+      title: m['fw.footer.official'](),
       links: [
+        { label: 'hotaru-anime.com', href: OFFICIAL_ANIME_URL },
+        { label: 'Ura Sunday', href: OFFICIAL_MANGA_URL },
         {
-          label: 'support@hotel-lobby.org',
-          href: 'mailto:support@hotel-lobby.org',
+          label: 'Crunchyroll',
+          href: 'https://www.crunchyroll.com/search?q=Firefly%20Wedding',
         },
       ],
     },
     {
-      title: m['landing.footer.legal'](),
+      title: m['fw.footer.legal'](),
       links: [
         { label: m['landing.footer.privacy'](), href: '/privacy-policy' },
         { label: m['landing.footer.terms'](), href: '/terms-of-service' },
-        { label: m['landing.footer.aup'](), href: '/acceptable-use-policy' },
       ],
     },
   ];
 
   return (
     <SiteFooter
-      tagline={m['hotel.footer.line']()}
+      tagline={m['fw.footer.tagline']()}
       columns={columns}
       badges={<FooterBadgeList className="mt-10" />}
+      disclaimer={m['fw.footer.disclaimer']()}
+      wordmark={envConfigs.app_name}
     />
   );
 }
