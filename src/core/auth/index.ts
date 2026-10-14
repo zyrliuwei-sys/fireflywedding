@@ -168,10 +168,6 @@ async function sendWelcomeEmail(
 
     const appName = configs.app_name || envConfigs.app_name;
     const appUrl = configs.app_url || envConfigs.app_url;
-    const credits =
-      configs.initial_credits_enabled === 'true'
-        ? parseInt(configs.initial_credits_amount) || 0
-        : 0;
     const zh = (user.locale || '').startsWith('zh');
 
     const result = await emailCtx.provider.sendEmail({
@@ -180,10 +176,8 @@ async function sendWelcomeEmail(
       react: WelcomeEmail({
         appName,
         logoUrl: getEmailLogoUrl(configs, appUrl),
-        url: `${appUrl}${zh ? '/zh' : ''}/#create`,
-        videosUrl: `${appUrl}${zh ? '/zh' : ''}/settings/videos`,
+        url: `${appUrl}${zh ? '/zh' : ''}/watch`,
         name: user.name || undefined,
-        credits,
         locale: zh ? 'zh' : 'en',
       }),
     });

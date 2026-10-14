@@ -89,10 +89,21 @@ function LeadCard({
       </div>
       <div className="p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-          <h3 className="fw-display text-4xl">{c.name}</h3>
-          <span lang="ja" className="fw-mincho text-muted-foreground">
-            {c.ja}
-          </span>
+          {zh && c.ja ? (
+            <>
+              <h3 lang="ja" className="fw-mincho text-4xl">
+                {c.ja}
+              </h3>
+              <span className="text-muted-foreground">{c.name}</span>
+            </>
+          ) : (
+            <>
+              <h3 className="fw-display text-4xl">{c.name}</h3>
+              <span lang="ja" className="fw-mincho text-muted-foreground">
+                {c.ja}
+              </span>
+            </>
+          )}
         </div>
         <p className="mt-2 text-sm font-medium text-[var(--ai)]">
           {ROLE[c.id]?.()}
@@ -116,14 +127,27 @@ function SupportCard({ c, zh }: { c: Character; zh: boolean }) {
         {c.glyph}
       </span>
       <p className="text-muted-foreground relative text-xs">{cvLabel(c, zh)}</p>
-      <h3 className="fw-display relative mt-6 text-3xl">{c.name}</h3>
-      {c.ja && (
-        <p
-          lang="ja"
-          className="fw-mincho text-muted-foreground relative mt-1 text-sm"
-        >
-          {c.ja}
-        </p>
+      {zh && c.ja ? (
+        <>
+          <h3 lang="ja" className="fw-mincho relative mt-6 text-3xl">
+            {c.ja}
+          </h3>
+          <p className="text-muted-foreground relative mt-1 text-sm">
+            {c.name}
+          </p>
+        </>
+      ) : (
+        <>
+          <h3 className="fw-display relative mt-6 text-3xl">{c.name}</h3>
+          {c.ja && (
+            <p
+              lang="ja"
+              className="fw-mincho text-muted-foreground relative mt-1 text-sm"
+            >
+              {c.ja}
+            </p>
+          )}
+        </>
       )}
       <p className="relative mt-3 text-sm font-medium text-[var(--ai)]">
         {ROLE[c.id]?.()}
@@ -187,7 +211,7 @@ export function FwCharacters({
         )}
 
         {full && (
-          <div className="mt-28 grid gap-10 lg:grid-cols-12">
+          <div className="mt-28 grid grid-cols-1 gap-10 lg:grid-cols-12">
             <RevealHeading className="fw-display text-[clamp(2.5rem,5vw,4rem)] lg:col-span-4">
               {m['fw.charspage.cast_title']()}
             </RevealHeading>

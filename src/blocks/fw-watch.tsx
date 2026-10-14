@@ -70,7 +70,7 @@ export function FwWatch({
   return (
     <section id="watch" className="scroll-mt-24">
       <div className="mx-auto max-w-[1320px] px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Framed night still */}
           <Reveal className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
             <figure className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[var(--night)] shadow-[0_24px_60px_-30px_oklch(0.21_0.03_265/0.6)]">
@@ -98,7 +98,7 @@ export function FwWatch({
             </figure>
           </Reveal>
 
-          <div className="lg:col-span-7">
+          <div className="min-w-0 lg:col-span-7">
             {showHeading && (
               <Reveal>
                 <RevealHeading className="fw-display text-[clamp(2.75rem,5.5vw,4.75rem)]">
@@ -116,15 +116,15 @@ export function FwWatch({
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'group bg-primary text-primary-foreground flex items-end justify-between gap-6 rounded-xl p-6 transition-[filter] hover:brightness-95 sm:p-8',
+                'group bg-primary text-primary-foreground flex items-end justify-between gap-4 rounded-xl p-5 transition-[filter] hover:brightness-95 sm:gap-6 sm:p-8',
                 showHeading && 'mt-12'
               )}
             >
-              <div>
+              <div className="min-w-0">
                 <p className="fw-label opacity-70">
                   {REGION[featured.region]()}
                 </p>
-                <p className="fw-display mt-4 text-[clamp(2.75rem,6vw,4.5rem)]">
+                <p className="fw-display mt-4 text-[clamp(2.25rem,6vw,4.5rem)] break-words">
                   {featured.name}
                 </p>
                 <p className="mt-2 text-sm opacity-80">
@@ -144,12 +144,12 @@ export function FwWatch({
                     rel="noopener noreferrer"
                     className="group bg-card flex h-full items-start justify-between gap-2 rounded-xl border p-4 transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-[var(--pulse)] hover:shadow-[0_14px_34px_-18px_color-mix(in_oklab,var(--pulse)_70%,transparent)] sm:gap-4 sm:p-5"
                   >
-                    <div>
-                      <p className="fw-display text-2xl sm:text-3xl">
+                    <div className="min-w-0">
+                      <p className="fw-display text-2xl break-words sm:text-3xl">
                         {p.name}
                       </p>
                       <p className="text-muted-foreground mt-2 text-sm">
-                        {REGION[p.region]()}, {PLATFORM_NOTE[p.id]()}
+                        {REGION[p.region]()} · {PLATFORM_NOTE[p.id]()}
                       </p>
                     </div>
                     <ArrowUpRight className="text-muted-foreground group-hover:text-foreground size-4 shrink-0 transition-[color,transform] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -1,4 +1,4 @@
-import { createFileRoute, notFound } from '@tanstack/react-router';
+import { createFileRoute, notFound, redirect } from '@tanstack/react-router';
 import { MDXProvider } from '@mdx-js/react';
 import { ArrowLeft, Calendar } from 'lucide-react';
 
@@ -14,6 +14,10 @@ import { formatPostDate, loadLocalPost } from '@/content/posts';
 import { getBlogPostFn } from '@/content/posts/server';
 
 export const Route = createFileRoute('/blog/$slug')({
+  // Leftover from the template: not part of the fan site, so send visitors home.
+  beforeLoad: () => {
+    throw redirect({ to: '/' });
+  },
   loader: async ({ params }) => {
     const locale = getLocale();
     const post = await getBlogPostFn({

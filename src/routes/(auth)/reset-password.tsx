@@ -20,8 +20,8 @@ import { Field, FieldDescription, FieldGroup } from '@/components/ui/field';
 
 const resetSchema = z
   .object({
-    password: z.string().min(8),
-    confirmPassword: z.string().min(8),
+    password: z.string().min(8, m['common.sign.password_min']()),
+    confirmPassword: z.string().min(8, m['common.sign.password_min']()),
   })
   .refine((d) => d.password === d.confirmPassword, {
     path: ['confirmPassword'],
@@ -184,5 +184,12 @@ function ResetPasswordPage() {
 }
 
 export const Route = createFileRoute('/(auth)/reset-password')({
+  head: () => ({
+    meta: [
+      {
+        title: `${m['common.sign.reset_password_title']()} | ${envConfigs.app_name}`,
+      },
+    ],
+  }),
   component: ResetPasswordPage,
 });

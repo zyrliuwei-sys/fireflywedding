@@ -9,6 +9,7 @@ import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
+import { LocaleToggle } from '@/components/locale-toggle';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { buttonVariants } from '@/components/ui/button';
 
@@ -93,7 +94,8 @@ export function SiteHeader({
 
         {/* Desktop actions */}
         <div className="hidden h-full items-center gap-2 pl-3 md:flex">
-          <ThemeToggle />
+          <LocaleToggle />
+          <ThemeToggle label={m['common.nav.toggle_theme']()} />
           {user ? (
             <Suspense fallback={<span className="size-8" />}>
               <SiteUserMenu
@@ -137,7 +139,11 @@ export function SiteHeader({
         <button
           className="mr-2 p-2 md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-label={
+            mobileOpen
+              ? m['common.nav.close_menu']()
+              : m['common.nav.open_menu']()
+          }
           aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -174,7 +180,8 @@ export function SiteHeader({
             )}
           </nav>
           <div className="border-border mt-3 flex items-center gap-2 border-t pt-3">
-            <ThemeToggle />
+            <LocaleToggle />
+            <ThemeToggle label={m['common.nav.toggle_theme']()} />
             <div className="flex-1" />
             {user ? (
               <Suspense fallback={<span className="size-8" />}>

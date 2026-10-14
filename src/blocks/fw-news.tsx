@@ -78,7 +78,7 @@ function Meta({ n }: { n: NewsItem }) {
 function SourceLink({ n }: { n: NewsItem }) {
   return (
     <span className="text-muted-foreground group-hover:text-foreground inline-flex items-center gap-1 text-xs transition-colors">
-      {m['fw.news.read']()}: {n.source}
+      {m['fw.news.read']({ source: n.source })}
       <ArrowUpRight className="size-3.5" />
     </span>
   );
@@ -117,7 +117,7 @@ function Digest() {
   const compact = [upcoming, ...rest].filter(Boolean).slice(0, 4) as NewsItem[];
 
   return (
-    <div className="mt-14 grid gap-10 lg:grid-cols-12">
+    <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12">
       <Reveal className="lg:col-span-7">
         <a
           href={lead.url}

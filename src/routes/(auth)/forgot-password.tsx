@@ -21,7 +21,7 @@ import {
 import { Field, FieldDescription, FieldGroup } from '@/components/ui/field';
 
 const forgotSchema = z.object({
-  email: z.string().email(m['common.sign.email_placeholder']()),
+  email: z.string().email(m['common.sign.email_invalid']()),
 });
 
 function ForgotPasswordPage() {
@@ -168,5 +168,12 @@ function ForgotPasswordPage() {
 }
 
 export const Route = createFileRoute('/(auth)/forgot-password')({
+  head: () => ({
+    meta: [
+      {
+        title: `${m['common.sign.forgot_password_title']()} | ${envConfigs.app_name}`,
+      },
+    ],
+  }),
   component: ForgotPasswordPage,
 });

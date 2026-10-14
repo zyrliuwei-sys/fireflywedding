@@ -40,6 +40,10 @@ export function Footer() {
       tagline={m['fw.footer.tagline']()}
       columns={columns}
       badges={<FooterBadgeList className="mt-10" />}
+      copyright={m['fw.footer.copyright']({
+        year: String(new Date().getFullYear()),
+        name: envConfigs.app_name,
+      })}
       disclaimer={m['fw.footer.disclaimer']()}
       wordmark={envConfigs.app_name}
     />

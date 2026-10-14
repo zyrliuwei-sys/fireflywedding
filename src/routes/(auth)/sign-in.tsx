@@ -27,8 +27,8 @@ import {
 import { Input } from '@/components/ui/input';
 
 const signInSchema = z.object({
-  email: z.string().email(m['common.sign.email_placeholder']()),
-  password: z.string().min(1),
+  email: z.string().email(m['common.sign.email_invalid']()),
+  password: z.string().min(1, m['common.sign.password_required']()),
 });
 
 function SignInPage() {
@@ -318,5 +318,10 @@ function SignInPage() {
 }
 
 export const Route = createFileRoute('/(auth)/sign-in')({
+  head: () => ({
+    meta: [
+      { title: `${m['common.sign.sign_in_title']()} | ${envConfigs.app_name}` },
+    ],
+  }),
   component: SignInPage,
 });

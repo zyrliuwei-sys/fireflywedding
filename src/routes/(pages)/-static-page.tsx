@@ -78,6 +78,13 @@ export function staticPageRouteOptions(slug: string) {
             href: localizeUrl(`${envConfigs.app_url}/${slug}`, { locale: loc })
               .href,
           })),
+          {
+            rel: 'alternate',
+            hrefLang: 'x-default',
+            href: localizeUrl(`${envConfigs.app_url}/${slug}`, {
+              locale: baseLocale,
+            }).href,
+          },
         ],
       };
     },
@@ -96,7 +103,8 @@ function StaticPage() {
     <article>
       <header className="border-border mb-6 border-b pb-5">
         <h1 className="text-foreground text-3xl font-semibold tracking-tight md:text-4xl">
-          {meta.title}
+          {/* The "| Site" suffix belongs in <title>, not the heading. */}
+          {meta.title.split(' | ')[0]}
         </h1>
         <p className="text-muted-foreground mt-2 text-sm">{meta.description}</p>
         <p className="text-muted-foreground mt-2 text-xs">

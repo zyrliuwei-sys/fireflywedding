@@ -29,10 +29,19 @@ function Entry({
 }
 
 const STATS = [
-  { value: '4M+', label: () => m['fw.guide.stat.copies']() },
-  { value: '12', label: () => m['fw.guide.stat.episodes']() },
-  { value: '10.09', label: () => m['fw.guide.stat.premiere']() },
-  { value: 'No. 1', label: () => m['fw.guide.stat.award']() },
+  {
+    value: () => m['fw.guide.stat.copies_value'](),
+    label: () => m['fw.guide.stat.copies'](),
+  },
+  { value: () => '12', label: () => m['fw.guide.stat.episodes']() },
+  {
+    value: () => m['fw.guide.stat.premiere_value'](),
+    label: () => m['fw.guide.stat.premiere'](),
+  },
+  {
+    value: () => m['fw.guide.stat.award_value'](),
+    label: () => m['fw.guide.stat.award'](),
+  },
 ];
 
 /** Long-form explainer: the homepage's main body copy. */
@@ -54,13 +63,13 @@ export function FwGuide() {
                 {st.label()}
               </dt>
               <dd className="fw-display order-1 text-[clamp(2.75rem,5vw,4.25rem)] leading-none">
-                {st.value}
+                {st.value()}
               </dd>
             </Reveal>
           ))}
         </dl>
 
-        <div className="mt-20 grid gap-16 lg:grid-cols-12">
+        <div className="mt-20 grid grid-cols-1 gap-16 lg:grid-cols-12">
           <article className="space-y-14 lg:col-span-7">
             <Entry
               title={m['fw.guide.what.title']()}

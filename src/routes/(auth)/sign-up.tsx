@@ -31,8 +31,8 @@ import {
 // sign-ups, and a mistyped password is recoverable via reset.
 const signUpSchema = z.object({
   name: z.string(),
-  email: z.string().email(m['common.sign.email_placeholder']()),
-  password: z.string().min(8),
+  email: z.string().email(m['common.sign.email_invalid']()),
+  password: z.string().min(8, m['common.sign.password_min']()),
   inviteCode: z.string(),
 });
 
@@ -340,5 +340,10 @@ function SignUpPage() {
 }
 
 export const Route = createFileRoute('/(auth)/sign-up')({
+  head: () => ({
+    meta: [
+      { title: `${m['common.sign.sign_up_title']()} | ${envConfigs.app_name}` },
+    ],
+  }),
   component: SignUpPage,
 });

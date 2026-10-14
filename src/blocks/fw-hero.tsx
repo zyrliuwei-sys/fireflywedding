@@ -2,9 +2,11 @@ import type { ReactNode } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
+import { CHARACTERS } from '@/config/firefly';
 import { srcSet } from '@/lib/img';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
+import { getLocale } from '@/paraglide/runtime.js';
 import { FireflyField } from '@/components/firefly-field';
 import { NodeCard } from '@/components/node-card';
 
@@ -61,6 +63,7 @@ const WIRES = [
 ];
 
 function useNodes() {
+  const zh = getLocale() === 'zh';
   const nodes: {
     key: keyof typeof N;
     label: string;
@@ -144,18 +147,14 @@ function useNodes() {
       panelClassName: 'flex flex-col justify-center gap-2 p-5 text-sm',
       body: (
         <>
-          <p className="flex items-baseline justify-between gap-3">
-            <span className="font-semibold">Lynn</span>
-            <span lang="ja" className="fw-mincho text-muted-foreground">
-              桐ヶ谷紗都子
-            </span>
-          </p>
-          <p className="flex items-baseline justify-between gap-3">
-            <span className="font-semibold">内山昂輝</span>
-            <span lang="ja" className="fw-mincho text-muted-foreground">
-              後藤進平
-            </span>
-          </p>
+          {CHARACTERS.filter((c) => c.lead && c.cv).map((c) => (
+            <p key={c.id} className="flex items-baseline justify-between gap-3">
+              <span className="font-semibold">{zh ? c.cv!.ja : c.cv!.en}</span>
+              <span lang="ja" className="fw-mincho text-muted-foreground">
+                {c.ja.replace(' ', '')}
+              </span>
+            </p>
+          ))}
         </>
       ),
     },

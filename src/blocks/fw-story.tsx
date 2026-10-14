@@ -97,7 +97,7 @@ export function FwStory({
   return (
     <section id="story" className="scroll-mt-24">
       <div className="mx-auto max-w-[1320px] px-4 py-24 sm:px-6 lg:px-10 lg:py-32">
-        <div className="grid gap-16 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
           <Reveal className="lg:col-span-6">
             {showHeading && (
               <>

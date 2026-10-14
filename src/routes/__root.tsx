@@ -14,8 +14,10 @@ import cormorantLatinUrl from '@fontsource-variable/cormorant-garamond/files/cor
 import dmSansLatinUrl from '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2?url';
 import { ThemeProvider } from 'next-themes';
 
+import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { getQueryClient } from '@/lib/query-client';
+import { m } from '@/paraglide/messages.js';
 import { getLocale } from '@/paraglide/runtime.js';
 import { Ads } from '@/components/analytics/ads';
 import { Clarity } from '@/components/analytics/clarity';
@@ -64,7 +66,7 @@ export const Route = createRootRoute({
         { charSet: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { title: envConfigs.app_name },
-        { name: 'description', content: envConfigs.app_description },
+        { name: 'description', content: m['common.metadata.description']() },
       ],
       links: [
         // Preload the latin display/body fonts (declared in styles/fonts.css
@@ -173,10 +175,10 @@ function NotFound() {
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col items-center justify-center gap-4">
       <h1 className="text-6xl font-bold">404</h1>
-      <p className="text-muted-foreground">Page not found</p>
-      <a href="/" className="text-sm underline underline-offset-4">
-        Back to home
-      </a>
+      <p className="text-muted-foreground">{m['common.not_found.message']()}</p>
+      <Link href="/" className="text-sm underline underline-offset-4">
+        {m['common.not_found.back_home']()}
+      </Link>
     </div>
   );
 }
@@ -184,10 +186,8 @@ function NotFound() {
 function RootError({ error, reset }: ErrorComponentProps) {
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col items-center justify-center gap-4">
-      <h1 className="text-4xl font-bold">Oops</h1>
-      <p className="text-muted-foreground">
-        Something went wrong. Please try again.
-      </p>
+      <h1 className="text-4xl font-bold">{m['common.error.title']()}</h1>
+      <p className="text-muted-foreground">{m['common.error.message']()}</p>
       {import.meta.env.DEV && error instanceof Error && (
         <pre className="bg-muted mt-2 max-w-lg overflow-auto rounded p-4 text-xs">
           {error.message}
@@ -198,7 +198,7 @@ function RootError({ error, reset }: ErrorComponentProps) {
         onClick={reset}
         className="text-sm underline underline-offset-4"
       >
-        Try again
+        {m['common.error.retry']()}
       </button>
     </div>
   );

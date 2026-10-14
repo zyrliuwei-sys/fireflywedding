@@ -3,8 +3,11 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Activity, CreditCard, Key, TrendingUp } from 'lucide-react';
 
 import { useSession } from '@/core/auth/client';
+import { Link } from '@/core/i18n/navigation';
 import { apiGet } from '@/lib/api-client';
+import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
+import { buttonVariants } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -129,10 +132,21 @@ function DashboardPage() {
             {m['settings.overview.getting_started_description']()}
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="border-border text-muted-foreground rounded-lg border border-dashed p-8 text-center">
-            <p className="text-sm">{m['settings.placeholder']()}</p>
-          </div>
+        <CardContent className="flex flex-wrap gap-2">
+          {[
+            { href: '/watch', label: m['fw.nav.watch']() },
+            { href: '/watch#episodes', label: m['fw.cta.button']() },
+            { href: '/characters', label: m['fw.nav.characters']() },
+            { href: '/news', label: m['fw.nav.news']() },
+          ].map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className={cn(buttonVariants({ variant: 'outline' }))}
+            >
+              {l.label}
+            </Link>
+          ))}
         </CardContent>
       </Card>
     </div>
