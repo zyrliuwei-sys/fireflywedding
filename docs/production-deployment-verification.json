@@ -1,0 +1,546 @@
+{
+  "checked_at": "2026-11-13",
+  "deployment_version": "e7531dc2-d4e4-40a6-9fa0-bd91318785c2",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Firefly Wedding Anime: Where to Watch, Episodes, Story &amp; Cast",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/"
+    },
+    {
+      "path": "/watch",
+      "status": 200,
+      "title": "Where to Watch Firefly Wedding Anime (2026): Streaming &amp; Schedule",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/watch"
+    },
+    {
+      "path": "/story",
+      "status": 200,
+      "title": "Firefly Wedding Story &amp; Plot Guide (Spoiler-Light)",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/story"
+    },
+    {
+      "path": "/characters",
+      "status": 200,
+      "title": "Firefly Wedding Characters &amp; Voice Cast (Anime 2026)",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/characters"
+    },
+    {
+      "path": "/news",
+      "status": 200,
+      "title": "Firefly Wedding Anime News &amp; Updates",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/news"
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "About This Site — Firefly Wedding Unofficial Guide",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/about"
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "title": "Contact — Firefly Wedding Unofficial Guide",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/contact"
+    },
+    {
+      "path": "/episodes",
+      "status": 200,
+      "title": "Firefly Wedding Episodes — Official Summary Guide",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/episodes"
+    },
+    {
+      "path": "/staff",
+      "status": 200,
+      "title": "Firefly Wedding Staff and Voice Cast — Official Credits",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/staff"
+    },
+    {
+      "path": "/manga-vs-anime",
+      "status": 200,
+      "title": "Firefly Wedding Manga vs Anime — Where to Start",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/manga-vs-anime"
+    },
+    {
+      "path": "/where-to-watch",
+      "status": 200,
+      "title": "Where to Watch Firefly Wedding — Official Platform Links",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/where-to-watch"
+    },
+    {
+      "path": "/schedule",
+      "status": 200,
+      "title": "Firefly Wedding Broadcast Schedule — Times and Sources",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/schedule"
+    },
+    {
+      "path": "/characters/satoko-kirigaya",
+      "status": 200,
+      "title": "Satoko Kirigaya — Firefly Wedding Character Guide",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/characters/satoko-kirigaya"
+    },
+    {
+      "path": "/characters/shinpei-goto",
+      "status": 200,
+      "title": "Shinpei Gotō — Firefly Wedding Character Guide",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/characters/shinpei-goto"
+    },
+    {
+      "path": "/characters/kotaro-ogawa",
+      "status": 200,
+      "title": "Kōtarō Ogawa — Firefly Wedding Character Guide",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/characters/kotaro-ogawa"
+    },
+    {
+      "path": "/characters/mitsueda",
+      "status": 200,
+      "title": "Mitsueda — Firefly Wedding Character Guide",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/characters/mitsueda"
+    },
+    {
+      "path": "/characters/mitsuharu-okumura",
+      "status": 200,
+      "title": "Mitsuharu Okumura — Firefly Wedding Character Status",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/characters/mitsuharu-okumura"
+    },
+    {
+      "path": "/characters/jubei-kirigaya",
+      "status": 200,
+      "title": "Jūbei Kirigaya — Firefly Wedding Character Guide",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/characters/jubei-kirigaya"
+    },
+    {
+      "path": "/privacy-policy",
+      "status": 200,
+      "title": "Privacy Policy | Firefly Wedding",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/privacy-policy"
+    },
+    {
+      "path": "/terms-of-service",
+      "status": 200,
+      "title": "Terms of Service | Firefly Wedding",
+      "h1": 1,
+      "images": ["/logo.svg"],
+      "iframe": false,
+      "oldArtwork": false,
+      "canonical": "https://fireflywedding.org/terms-of-service"
+    }
+  ],
+  "sitemap": {
+    "status": 200,
+    "total": 27,
+    "english": 20,
+    "urls": [
+      "https://fireflywedding.org/",
+      "https://fireflywedding.org/zh",
+      "https://fireflywedding.org/watch",
+      "https://fireflywedding.org/zh/watch",
+      "https://fireflywedding.org/story",
+      "https://fireflywedding.org/zh/story",
+      "https://fireflywedding.org/characters",
+      "https://fireflywedding.org/zh/characters",
+      "https://fireflywedding.org/news",
+      "https://fireflywedding.org/zh/news",
+      "https://fireflywedding.org/privacy-policy",
+      "https://fireflywedding.org/zh/privacy-policy",
+      "https://fireflywedding.org/terms-of-service",
+      "https://fireflywedding.org/zh/terms-of-service",
+      "https://fireflywedding.org/about",
+      "https://fireflywedding.org/contact",
+      "https://fireflywedding.org/episodes",
+      "https://fireflywedding.org/staff",
+      "https://fireflywedding.org/manga-vs-anime",
+      "https://fireflywedding.org/where-to-watch",
+      "https://fireflywedding.org/schedule",
+      "https://fireflywedding.org/characters/satoko-kirigaya",
+      "https://fireflywedding.org/characters/shinpei-goto",
+      "https://fireflywedding.org/characters/kotaro-ogawa",
+      "https://fireflywedding.org/characters/mitsueda",
+      "https://fireflywedding.org/characters/mitsuharu-okumura",
+      "https://fireflywedding.org/characters/jubei-kirigaya"
+    ]
+  },
+  "removed_assets": [
+    {
+      "path": "/imgs/firefly/anime-key-visual-1440.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/anime-key-visual-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/anime-key-visual.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/anime-poster-480.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/anime-poster-840.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/anime-poster.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/manga-banner-1200.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/manga-banner-800.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/manga-banner.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/manga-vol4.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/manga-vol8.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/satoko-portrait.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/satoko-teaser.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/firefly/shinpei-portrait.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/duet-couple.jpg",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/duet-friends.jpg",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/duet-hero-mobile.jpg",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/duet-scene-preview.jpg",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/duet-siblings.jpg",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/duet-studio-wide.jpg",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-character-masthead-640.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-character-masthead-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-character-masthead.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-cta-firefly-path-1440.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-cta-firefly-path-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-cta-firefly-path.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-news-masthead-640.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-news-masthead-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-news-masthead.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-story-masthead-640.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-story-masthead-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-story-masthead.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-watch-garden-560.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-watch-garden-880.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-watch-garden.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-watch-masthead-640.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-watch-masthead-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/fw-watch-masthead.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/hotel-lobby-duet.png",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/hotel-lobby-sisters.png",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/couple-640.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/couple-640.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/couple-960.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/couple-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/friends-640.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/friends-640.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/friends-960.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/friends-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-desktop-1280.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-desktop-1280.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-desktop-1672.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-desktop-1672.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-desktop-960.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-desktop-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-mobile-1024.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-mobile-1024.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-mobile-480.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-mobile-480.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-mobile-768.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/hero-mobile-768.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/scene-preview-480.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/scene-preview-480.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/scene-preview-768.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/scene-preview-768.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/siblings-640.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/siblings-640.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/siblings-960.avif",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/siblings-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/generated/opt/studio-backdrop-960.webp",
+      "status": 404
+    },
+    {
+      "path": "/imgs/icons/creem.png",
+      "status": 404
+    },
+    {
+      "path": "/videos/hotel-lobby-reference.mp4",
+      "status": 404
+    },
+    {
+      "path": "/videos/hotel-lobby-verse15.mp4",
+      "status": 404
+    }
+  ],
+  "public_config_status": 200,
+  "robots": {
+    "status": 200,
+    "points_to_production_sitemap": true
+  },
+  "ads_txt": {
+    "url": "https://fireflywedding.org/ads.txt",
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "body": "google.com, pub-2841223102464177, DIRECT, f08c47fec0942fa0",
+    "exact_match": true,
+    "newline_count": 0,
+    "rendered_visible": true,
+    "deployment_version": "b33beb55-c510-4476-93e8-56be5be3d5a9"
+  },
+  "latest_deployment_version": "b33beb55-c510-4476-93e8-56be5be3d5a9"
+}

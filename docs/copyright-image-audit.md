@@ -112,3 +112,7 @@
 | [https://smollaunch.com/badges/featured.svg](https://smollaunch.com/badges/featured.svg)                       | 第三方目录图片徽章，授权未核实 | 本地代码已撤下；部署后生效 |
 | [https://startupfa.me/badges/featured-badge-small.webp](https://startupfa.me/badges/featured-badge-small.webp) | 第三方目录图片徽章，授权未核实 | 本地代码已撤下；部署后生效 |
 | [https://trustiner.com/assets/images/badge.png](https://trustiner.com/assets/images/badge.png)                 | 第三方目录图片徽章，授权未核实 | 本地代码已撤下；部署后生效 |
+
+## 后续上线状态
+
+本清单所列本地移除已随 Cloudflare 发布上线。2026-11-13 对 20 个英文页面检查均为 HTTP 200，72 个已删除媒体地址全部返回 HTTP 404；sitemap 含 20 个英文 URL 和既有 7 个中文 URL。页脚的 4 个远程图片徽章已撤下。原始线上扫描记录保留为修复前证据；当前上线结果见 `production-deployment-verification.json`。
