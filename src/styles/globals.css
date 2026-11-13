@@ -457,3 +457,38 @@
     border-radius: 6px;
   }
 }
+
+/* Text-only guide tables: contain wide source columns on small screens. */
+.fw-information {
+  overflow-wrap: anywhere;
+}
+.fw-information table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  border-collapse: collapse;
+}
+.fw-information th,
+.fw-information td {
+  padding: 0.85rem 1rem;
+  min-width: 8rem;
+  vertical-align: top;
+  text-align: left;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+.fw-information th {
+  background: var(--muted);
+  font-weight: 600;
+}
+.fw-information td {
+  border-top: 1px solid var(--border);
+}
+.fw-information a {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

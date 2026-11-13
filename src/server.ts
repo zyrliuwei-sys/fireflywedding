@@ -1,5 +1,6 @@
 import handler from '@tanstack/react-start/server-entry';
 
+import { isEnglishGuide } from './config/guide-pages';
 import { getCookieFromHeader } from './lib/cookie';
 import { paraglideMiddleware } from './paraglide/server.js';
 
@@ -71,6 +72,14 @@ async function renderWithEdgeCache(req: Request): Promise<Response> {
 // getLocale() resolves per-request (AsyncLocalStorage) during SSR.
 export default {
   async fetch(req: Request): Promise<Response> {
+    const requestedUrl = new URL(req.url);
+    if (
+      requestedUrl.pathname.startsWith('/zh/') &&
+      isEnglishGuide(requestedUrl.pathname)
+    ) {
+      requestedUrl.pathname = requestedUrl.pathname.replace(/^\/zh/, '');
+      return Response.redirect(requestedUrl.href, 308);
+    }
     await ensureCloudflareEnv();
     const response = await renderWithEdgeCache(req);
     response.headers.set('X-Content-Type-Options', 'nosniff');

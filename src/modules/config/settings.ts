@@ -934,7 +934,7 @@ export function getSettings(): Setting[] {
       title: '8-second reference video URL',
       type: 'text',
       placeholder:
-        'Leave empty = /videos/hotel-lobby-reference.mp4 (shipped with the site; MP4, ≤30s, 9:16)',
+        'Provide your own licensed reference video (MP4, ≤30s, 9:16)',
       group: 'hotel_lobby',
       tab: 'ai',
     },
@@ -942,8 +942,7 @@ export function getSettings(): Setting[] {
       name: 'hotel_lobby_motion_video_url_15',
       title: '15-second reference video URL',
       type: 'text',
-      placeholder:
-        'Leave empty = /videos/hotel-lobby-verse15.mp4 (the COLORS verse shipped with the site)',
+      placeholder: 'Provide your own licensed 15-second reference video',
       group: 'hotel_lobby',
       tab: 'ai',
     },

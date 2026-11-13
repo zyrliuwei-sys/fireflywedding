@@ -1,0 +1,289 @@
+messages/en.json:1023:  "admin.footer_badges.code_placeholder": "<a href=\"https://example.com\" target=\"_blank\"><img src=\"https://example.com/badge.svg\" width=250 alt=\"Featured badge\" /></a>",
+messages/en.json:1025:  "admin.footer_badges.invalid_code": "That code is not supported. Paste only an <a> containing one <img> with HTTPS URLs.",
+src/styles/globals.css:203:    mask-image: linear-gradient(
+src/styles/globals.css:261:  background-image:
+src/styles/fonts.css:16:  src: url('../../node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-ext-wght-normal.woff2')
+src/styles/fonts.css:28:  src: url('../../node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-normal.woff2')
+src/styles/fonts.css:40:  src: url('../../node_modules/@fontsource-variable/dm-sans/files/dm-sans-latin-ext-wght-normal.woff2')
+src/styles/fonts.css:52:  src: url('../../node_modules/@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2')
+src/styles/fonts.css:66:  src: url('../../node_modules/@fontsource-variable/cormorant-garamond/files/cormorant-garamond-latin-wght-italic.woff2')
+src/styles/hotel-lobby.css:129:  background: url('/imgs/generated/opt/studio-backdrop-960.webp') center / cover
+src/styles/hotel-lobby.css:141:  mask-image: linear-gradient(
+src/styles/hotel-lobby.css:635:/* OptImage wraps <img> in <picture>; keep the img as the laid-out box */
+src/styles/hotel-lobby.css:861:    mask-image: none;
+src/server.ts:39:  const url = new URL(req.url);
+src/server.ts:49:  const url = new URL(req.url);
+src/server.ts:97:    const utmSource = new URL(req.url).searchParams.get('utm_source');
+src/server.ts:107:          `utm_source=${sanitized}; Max-Age=2592000; Path=/; SameSite=Lax${new URL(req.url).protocol === 'https:' ? '; Secure' : ''}`
+src/server/footer-badge-automation.ts:72:      origin = new URL(options.siteOrigin()).origin;
+src/lib/rate-limit.ts:33:  const url = new URL(request.url);
+src/features/footer-badges/markup.ts:71:          new URL(anchor.getAttribute('href') || '').hostname,
+src/config/firefly.ts:125:    portrait: '/imgs/firefly/satoko-portrait.webp',
+src/config/firefly.ts:134:    portrait: '/imgs/firefly/shinpei-portrait.webp',
+src/routes/(auth)/sign-up.tsx:52:    setCallbackUrl(params.get('callbackUrl'));
+src/routes/(auth)/sign-up.tsx:68:  const afterLoginUrl = resolveAfterAuthUrl({
+src/config/index.ts:21:  app_logo: publicEnv('VITE_APP_LOGO') ?? '/logo.svg',
+src/blocks/fw-page-hero.tsx:17:  image = '/imgs/generated/fw-news-masthead.webp',
+src/blocks/fw-page-hero.tsx:85:            <img
+src/modules/indexnow/service.ts:42:  return new URL(envConfigs.app_url).origin;
+src/modules/indexnow/service.ts:45:export function keyFileUrl(key: string) {
+src/modules/indexnow/service.ts:64:  const host = new URL(origin).host;
+src/modules/indexnow/service.ts:68:      return new URL(u).host !== host;
+src/modules/indexnow/service.ts:86:      keyLocation: keyFileUrl(key),
+src/modules/indexnow/service.ts:105:      attempts.push({ endpoint: new URL(endpoint).host, status, meaning });
+src/blocks/fw-watch.tsx:77:              <img
+src/blocks/fw-watch.tsx:78:                src="/imgs/generated/fw-watch-garden.webp"
+src/blocks/fw-watch.tsx:80:                  '/imgs/generated/fw-watch-garden.webp',
+src/lib/seo.ts:7:export function localizedUrl(path: string, locale: string): string {
+src/lib/seo.ts:8:  return localizeUrl(`${envConfigs.app_url}${path || '/'}`, {
+src/lib/seo.ts:22:  image = '/imgs/firefly/anime-key-visual.webp',
+src/lib/seo.ts:32:  const url = localizedUrl(path, locale);
+src/lib/seo.ts:42:      { property: 'og:image', content: ogImage },
+src/lib/seo.ts:51:        href: localizedUrl(path, loc),
+src/lib/seo.ts:56:        href: localizedUrl(path, 'en'),
+src/lib/seo.ts:77:      item: localizedUrl(it.path, locale),
+src/config/db/schema.mysql.ts:33:    image: text('image'),
+src/config/db/schema.mysql.ts:122:    image: text('image'),
+src/config/db/schema.mysql.ts:145:    image: text('image'),
+src/config/db/schema.mysql.ts:150:    authorImage: text('author_image'),
+src/config/db/schema.postgres.ts:29:    image: text('image'),
+src/config/db/schema.postgres.ts:128:    image: text('image'),
+src/config/db/schema.postgres.ts:153:    image: text('image'),
+src/config/db/schema.postgres.ts:158:    authorImage: text('author_image'),
+src/features/footer-badges/validation.ts:37:function safeHttpsUrl(value: unknown, field: string): string {
+src/features/footer-badges/validation.ts:44:    url = new URL(value.trim());
+src/features/footer-badges/validation.ts:85:    const href = safeHttpsUrl(badge.href, `Badge ${index + 1} link`);
+src/features/footer-badges/validation.ts:87:      ? safeHttpsUrl(badge.src, `Badge ${index + 1} image`)
+src/routes/(auth)/auth-callback.tsx:43:    if (!isAppProtocolUrl(target)) {
+src/routes/(auth)/auth-callback.tsx:49:    const allowed = isAllowedAppProtocolUrl(
+src/config/db/schema.sqlite.ts:26:    image: text('image'),
+src/config/db/schema.sqlite.ts:139:    image: text('image'),
+src/config/db/schema.sqlite.ts:167:    image: text('image'),
+src/config/db/schema.sqlite.ts:172:    authorImage: text('author_image'),
+messages/zh.json:1023:  "admin.footer_badges.code_placeholder": "<a href=\"https://example.com\" target=\"_blank\"><img src=\"https://example.com/badge.svg\" width=250 alt=\"Featured badge\" /></a>",
+messages/zh.json:1025:  "admin.footer_badges.invalid_code": "代码格式不支持。请只粘贴包含一个 <img> 的 <a> 标签，并使用 HTTPS 地址。",
+src/config/hotel-lobby-images.ts:6: * without AVIF/WebP and for og:image. Kept out of blocks/hotel-lobby.tsx so
+src/core/email/templates/verify-email.tsx:36:                  <Img
+src/modules/credits/service.ts:91:    transactionScene: params.scene || CreditTransactionScene.GIFT,
+src/modules/credits/service.ts:283:    scene: CreditTransactionScene.GIFT,
+src/lib/redirect.ts:36:      const url = new URL(path, origin);
+src/lib/redirect.ts:53:export function isAppProtocolUrl(input: string | null | undefined): boolean {
+src/lib/redirect.ts:71:export function isAllowedAppProtocolUrl(
+src/lib/redirect.ts:75:  if (!isAppProtocolUrl(input) || !allowedSchemes) return false;
+src/lib/redirect.ts:93:export function resolveAfterAuthUrl(params: {
+src/lib/redirect.ts:99:  if (isAppProtocolUrl(redirect)) {
+src/routes/(auth)/verify-email.tsx:23:function safeDecodeCallbackUrl(raw?: string | null) {
+src/routes/(auth)/verify-email.tsx:78:    setCallbackUrl(cb);
+src/routes/(auth)/verify-email.tsx:87:        const url = new URL(window.location.href);
+src/routes/(auth)/verify-email.tsx:104:    const decoded = safeDecodeCallbackUrl(callbackUrl);
+src/routes/(auth)/verify-email.tsx:126:        hardNavigateToNextUrl();
+src/routes/(auth)/verify-email.tsx:143:      hardNavigateToNextUrl();
+src/routes/(auth)/verify-email.tsx:216:      hardNavigateToNextUrl();
+src/routes/(auth)/verify-email.tsx:223:        hardNavigateToNextUrl();
+src/content/posts/server.ts:22:      image: row.image || undefined,
+src/content/posts/server.ts:25:      authorImage: row.authorImage || undefined,
+src/content/posts/server.ts:63:          image: row.image || undefined,
+src/content/posts/server.ts:66:          authorImage: row.authorImage || undefined,
+src/content/posts/server.ts:82:      image: meta.image,
+src/content/posts/server.ts:85:      authorImage: meta.author_image,
+src/core/email/templates/welcome-email.tsx:75:                <Img
+src/blocks/hotel-lobby.tsx:56:const heroImage = '/imgs/generated/hotel-lobby-duet.png';
+src/blocks/hotel-lobby.tsx:57:const mobileHeroImage = '/imgs/generated/duet-hero-mobile.jpg';
+src/blocks/hotel-lobby.tsx:58:const previewImage = '/imgs/generated/duet-scene-preview.jpg';
+src/blocks/hotel-lobby.tsx:59:const friendsImage = '/imgs/generated/duet-friends.jpg';
+src/blocks/hotel-lobby.tsx:60:const siblingsImage = '/imgs/generated/duet-siblings.jpg';
+src/blocks/hotel-lobby.tsx:61:const coupleImage = '/imgs/generated/duet-couple.jpg';
+src/blocks/hotel-lobby.tsx:95:      <img
+src/blocks/hotel-lobby.tsx:235:    // Fetched as a blob (not <img src>) so the request is a plain API call;
+src/blocks/hotel-lobby.tsx:243:        objectUrl = URL.createObjectURL(blob);
+src/blocks/hotel-lobby.tsx:249:      if (objectUrl) URL.revokeObjectURL(objectUrl);
+src/blocks/hotel-lobby.tsx:263:async function toDataUrl(file: File, maxSide = 1536): Promise<string> {
+src/blocks/hotel-lobby.tsx:271:  return canvas.toDataURL('image/jpeg', 0.9);
+src/blocks/hotel-lobby.tsx:289:    const url = URL.createObjectURL(file);
+src/blocks/hotel-lobby.tsx:291:    return () => URL.revokeObjectURL(url);
+src/blocks/hotel-lobby.tsx:310:        <img src={preview} alt={label} className="hl-upload-preview" />
+src/blocks/hotel-lobby.tsx:459:        photoA: await toDataUrl(photoA!),
+src/blocks/hotel-lobby.tsx:460:        photoB: await toDataUrl(photoB!),
+src/blocks/hotel-lobby.tsx:594:          <img
+src/blocks/hotel-lobby.tsx:629:                image={user.image}
+src/blocks/hotel-lobby.tsx:675:              <img
+src/blocks/hotel-lobby.tsx:707:                poster={video.poster}
+src/blocks/hotel-lobby.tsx:924:                    poster={task.sceneImageUrl ?? undefined}
+src/blocks/hotel-lobby.tsx:930:                  <img
+src/blocks/hotel-lobby.tsx:1125:            <img
+src/content/posts/index.ts:72:    image: meta.image,
+src/content/posts/index.ts:75:    authorImage: meta.author_image,
+src/core/ai/replicate.ts:141:          images = data.output.map((image: any) => ({
+src/core/ai/replicate.ts:168:              key: `replicate/image/${this.getUuid()}.png`,
+src/router.tsx:17:      input: ({ url }) => deLocalizeUrl(url),
+src/router.tsx:18:      output: ({ url }) => localizeUrl(url),
+src/content/posts/what-is-shipany.en.mdx:7:  author_image: '/logo.png',
+src/content/posts/blocks-vs-components.zh.mdx:7:  author_image: '/logo.png',
+src/core/ai/gemini.ts:163:    const image: AIImage = {
+src/content/posts/blocks-vs-components.en.mdx:7:  author_image: '/logo.png',
+src/blocks/fw-guide.tsx:92:                <img
+src/blocks/fw-guide.tsx:93:                  src="/imgs/firefly/manga-banner.webp"
+src/blocks/fw-guide.tsx:95:                    '/imgs/firefly/manga-banner.webp',
+src/content/posts/what-is-shipany.zh.mdx:7:  author_image: '/logo.png',
+src/lib/img.ts:2: * Build a srcSet from pre-generated width variants: `foo.webp` plus
+src/lib/img.ts:3: * `foo-<w>.webp` siblings (made with cwebp, see public/imgs).
+src/lib/img.ts:6:  const base = src.replace(/\.webp$/, '');
+src/lib/img.ts:8:    ...widths.map((w) => `${base}-${w}.webp ${w}w`),
+src/routes/(auth)/sign-in.tsx:50:    setCallbackUrl(params.get('callbackUrl'));
+src/routes/(auth)/sign-in.tsx:66:  const afterLoginUrl = resolveAfterAuthUrl({
+src/blocks/blog.tsx:35:              image={post.image}
+src/blocks/blog.tsx:38:              authorImage={post.authorImage}
+src/components/built-with-shipany.tsx:6:    return new URL(url).hostname;
+src/core/ai/kie.ts:313:        images = resultUrls.map((image: any) => ({
+src/core/ai/kie.ts:335:            key: `kie/image/${this.getUuid()}.png`,
+src/core/ai/kie.ts:533:            key: `kie/image/${this.getUuid()}.png`,
+src/blocks/support-widget.tsx:133:                  <ImageUploader
+src/components/analytics/purchase-tracker.tsx:13:    const url = new URL(window.location.href);
+src/routes/story.tsx:38:          image="/imgs/generated/fw-story-masthead.webp"
+src/blocks/fw-hero.tsx:82:          <img
+src/blocks/fw-hero.tsx:83:            src="/imgs/firefly/manga-vol4.webp"
+src/blocks/fw-hero.tsx:116:          <img
+src/blocks/fw-hero.tsx:117:            src="/imgs/firefly/anime-poster.webp"
+src/blocks/fw-hero.tsx:118:            srcSet={srcSet('/imgs/firefly/anime-poster.webp', [480, 840], 990)}
+src/core/ai/fal.ts:185:        images = data.images.map((image: any) => ({
+src/core/ai/fal.ts:201:              key: `fal/image/${this.getUuid()}.png`,
+src/components/blog-card.tsx:30:        <img
+src/components/blog-card.tsx:59:                <img
+src/blocks/fw-cta.tsx:14:        <img
+src/blocks/fw-cta.tsx:15:          src="/imgs/generated/fw-cta-firefly-path.webp"
+src/blocks/fw-cta.tsx:17:            '/imgs/generated/fw-cta-firefly-path.webp',
+src/modules/payment/service.ts:176:    const u = new URL(url);
+src/blocks/fw-news.tsx:131:            <img
+src/blocks/fw-news.tsx:132:              src="/imgs/firefly/manga-vol8.webp"
+src/modules/config/settings-test.ts:86:function configuredSuccessUrl(group: string, configs: Record<string, string>) {
+src/modules/config/settings-test.ts:149:    successUrl: configuredSuccessUrl('stripe', configs),
+src/modules/config/settings-test.ts:150:    cancelUrl: configuredSuccessUrl('stripe', configs),
+src/modules/config/settings-test.ts:185:    successUrl: configuredSuccessUrl('creem', configs),
+src/modules/config/settings-test.ts:186:    cancelUrl: configuredSuccessUrl('creem', configs),
+src/modules/config/settings-test.ts:221:    successUrl: configuredSuccessUrl('waffo', configs),
+src/modules/config/settings-test.ts:222:    cancelUrl: configuredSuccessUrl('waffo', configs),
+src/modules/config/settings-test.ts:261:    successUrl: configuredSuccessUrl('paypal', configs),
+src/modules/config/settings-test.ts:262:    cancelUrl: configuredSuccessUrl('paypal', configs),
+src/modules/config/settings-test.ts:301:    successUrl: configuredSuccessUrl('alipay', configs),
+src/components/site-header.tsx:57:          <img
+src/components/site-header.tsx:104:                image={user.image}
+src/components/site-header.tsx:191:                  image={user.image}
+src/core/storage/index.ts:139:  getPublicUrl(options: { key: string; bucket?: string }): string | undefined {
+src/core/storage/index.ts:142:    return provider.getPublicUrl(options);
+src/routes/(pages)/-static-page.tsx:65:      const canonical = localizeUrl(`${envConfigs.app_url}/${slug}`, {
+src/routes/(pages)/-static-page.tsx:78:            href: localizeUrl(`${envConfigs.app_url}/${slug}`, { locale: loc })
+src/routes/(pages)/-static-page.tsx:84:            href: localizeUrl(`${envConfigs.app_url}/${slug}`, {
+src/blocks/fw-story.tsx:158:            <img
+src/blocks/fw-story.tsx:159:              src="/imgs/firefly/satoko-teaser.webp"
+src/blocks/fw-story.tsx:179:              <img
+src/blocks/fw-story.tsx:180:                src="/imgs/firefly/anime-key-visual.webp"
+src/blocks/fw-story.tsx:182:                  '/imgs/firefly/anime-key-visual.webp',
+src/routes/api/tickets.ts:21:    const { searchParams } = new URL(request.url);
+src/components/footer-badge-link.tsx:26:        <img
+src/core/storage/s3.ts:118:        this.getPublicUrl({ key: options.key, bucket: uploadBucket }) || url;
+src/routes/watch.tsx:40:          image="/imgs/generated/fw-watch-masthead.webp"
+src/core/storage/r2.ts:145:        this.getPublicUrl({ key: options.key, bucket: uploadBucket }) || url;
+src/routes/settings/-settings-form.tsx:29:  image: initialImage,
+src/routes/settings/-settings-form.tsx:33:  image: string;
+src/routes/settings/-settings-form.tsx:39:    mutationFn: (values: { name: string; image: string }) =>
+src/routes/settings/-settings-form.tsx:89:            <ImageUploader
+src/blocks/fw-characters.tsx:72:          <img
+src/components/app-layout.tsx:146:            image={session.user.image}
+src/components/sandbox-preview-bridge.tsx:6: * preview iframe, report route changes and the links clickable on the
+src/components/sandbox-preview-bridge.tsx:8: * along). A no-op outside an iframe, so production deployments are
+src/components/sandbox-preview-bridge.tsx:34:          const url = new URL(a.href, window.location.href);
+src/blocks/hero.tsx:15:          '[mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)]',
+src/modules/posts/service.ts:68:      image: post.image,
+src/modules/posts/service.ts:94:      image: post.image,
+src/modules/posts/service.ts:96:      authorImage: post.authorImage,
+src/modules/posts/service.ts:153:    image: data.image || '',
+src/routes/api/ai/fal/task.ts:25:    const id = new URL(request.url).searchParams.get('id');
+src/routes/settings/profile.tsx:21:        image: data.image || '',
+src/routes/settings/profile.tsx:35:    <SettingsForm name={user.name} email={user.email} image={user.image} />
+src/components/rich-text-editor.tsx:97:  onPickImage: () => void;
+src/components/rich-text-editor.tsx:209:          <ImageIcon className="size-4" />
+src/components/rich-text-editor.tsx:335:        onPickImage={() => fileInputRef.current?.click()}
+src/routes/api/hotel-lobby/preview.ts:104:    const id = new URL(request.url).searchParams.get('id');
+src/components/image-uploader.tsx:138:          URL.revokeObjectURL(item.preview);
+src/components/image-uploader.tsx:166:      const nextPreview = URL.createObjectURL(file);
+src/components/image-uploader.tsx:172:            URL.revokeObjectURL(item.preview);
+src/components/image-uploader.tsx:193:                URL.revokeObjectURL(item.preview);
+src/components/image-uploader.tsx:291:      preview: URL.createObjectURL(file),
+src/components/image-uploader.tsx:315:                URL.revokeObjectURL(current.preview);
+src/components/image-uploader.tsx:406:        URL.revokeObjectURL(removed.preview);
+src/components/image-uploader.tsx:460:            <ImageIcon className="text-primary h-4 w-4" />
+src/components/image-uploader.tsx:479:              <img
+src/routes/api/hotel-lobby/-preview.ts:40:  const secure = new URL(request.url).protocol === 'https:' ? '; Secure' : '';
+src/routes/__root.tsx:104:        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+src/routes/__root.tsx:105:        { rel: 'apple-touch-icon', href: '/favicon.svg' },
+src/routes/api/apikeys.ts:16:    const { searchParams } = new URL(request.url);
+src/routes/api/apikeys.ts:72:    const { searchParams } = new URL(request.url);
+src/routes/index.tsx:53:          image: `${envConfigs.app_url}/imgs/firefly/anime-key-visual.webp`,
+src/routes/index.tsx:73:          // Must mirror the hero <img> srcSet/sizes or the preload is wasted.
+src/routes/index.tsx:75:            '/imgs/firefly/anime-poster.webp',
+src/routes/api/hotel-lobby/task.ts:18:    const id = new URL(request.url).searchParams.get('id');
+src/routes/settings/videos.tsx:82:                    poster={v.sceneImageUrl ?? undefined}
+src/routes/settings/videos.tsx:89:                  <img
+src/routes/blog/$slug.tsx:32:    const canonical = localizeUrl(`${envConfigs.app_url}/blog/${post.slug}`, {
+src/routes/blog/$slug.tsx:85:                    <img
+src/routes/blog/$slug.tsx:100:            <img
+src/routes/settings/tickets.tsx:78:          <img
+src/routes/settings/tickets.tsx:358:                <ImageUploader
+src/routes/settings/tickets.tsx:453:              <ImageUploader
+src/routes/blog/index.tsx:28:      localizeUrl(`${envConfigs.app_url}/blog`, { locale: loc as any }).href;
+src/routes/blog/index.tsx:83:                  image={post.image}
+src/routes/blog/index.tsx:86:                  authorImage={post.authorImage}
+src/routes/sitemap[.]xml.ts:24:  return localizeUrl(`${envConfigs.app_url}${path || '/'}`, {
+src/routes/api/hotel-lobby/-pipeline.ts:261:function isFalUrl(url: string) {
+src/routes/api/hotel-lobby/-pipeline.ts:263:    return new URL(url).hostname.endsWith('fal.media');
+src/routes/api/hotel-lobby/-pipeline.ts:278:  if (!url || !isFalUrl(url)) return taskResult;
+src/routes/api/hotel-lobby/preview-image.ts:7:  const id = new URL(request.url).searchParams.get('id');
+src/routes/api/hotel-lobby/videos.ts:17:    const params = new URL(request.url).searchParams;
+src/routes/api/storage/upload-image.ts:145:        const publicUrl = storage.getPublicUrl({ key: objectKey });
+src/core/auth/index.ts:141: * Absolute raster logo URL for emails. Email clients don't render SVG <img>,
+src/core/auth/index.ts:144:function getEmailLogoUrl(
+src/core/auth/index.ts:149:  const logo = /\.svg(\?|#|$)/i.test(rawLogo) ? '' : rawLogo;
+src/core/auth/index.ts:178:        logoUrl: getEmailLogoUrl(configs, appUrl),
+src/core/auth/index.ts:270:          const host = new URL(origin).hostname;
+src/core/auth/index.ts:427:                const logoUrl = getEmailLogoUrl(all, appUrl);
+src/routes/api/payment/callback.ts:21:    const appUrl = new URL(baseUrl);
+src/routes/api/payment/callback.ts:22:    const target = new URL(input, appUrl);
+src/routes/api/payment/callback.ts:31:  const url = new URL(request.url);
+src/routes/api/hotel-lobby/download.ts:16:  const id = new URL(request.url).searchParams.get('id');
+src/components/ui/dot-pattern.tsx:21:interface DotPatternProps extends React.SVGProps<SVGSVGElement> {
+src/components/ui/dot-pattern.tsx:133:          fill={glow ? `url(#${id}-gradient)` : "currentColor"}
+src/routes/api/payment/checkout.ts:17:    const appUrl = new URL(baseUrl);
+src/routes/api/payment/checkout.ts:18:    const candidate = new URL(input, appUrl);
+src/routes/api/user/profile.ts:45:          const u = new URL(image);
+src/routes/api/user/profile.ts:75:      image: updated.image,
+src/routes/api/user/credits.ts:15:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/tickets.ts:23:    const { searchParams } = new URL(request.url);
+src/routes/admin/indexnow.tsx:62:    root.found.map((u) => locs(new URL(u).pathname))
+src/routes/api/admin/posts.ts:20:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/posts.ts:115:    const { searchParams } = new URL(request.url);
+src/routes/api/user/orders.ts:15:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/invite-codes.ts:28:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/invite-codes.ts:125:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/orders.ts:21:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/credits.ts:19:    const { searchParams } = new URL(request.url);
+src/routes/admin/posts.tsx:56:  image: string | null;
+src/routes/api/user/subscriptions/index.ts:15:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/roles/index.ts:30:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/roles/index.ts:101:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/indexnow.ts:26:  return { key, keyFileUrl: key ? keyFileUrl(key) : null };
+src/routes/api/admin/roles/assign.ts:39:    const { searchParams } = new URL(request.url);
+src/routes/admin/users.tsx:46:  image: string | null;
+src/routes/api/admin/roles/permissions.ts:23:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/permissions.ts:27:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/permissions.ts:102:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/categories.ts:20:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/categories.ts:85:    const { searchParams } = new URL(request.url);
+src/routes/admin/footer-badges.tsx:158:                      <img
+src/routes/admin/tickets.tsx:81:          <img
+src/routes/admin/tickets.tsx:399:                <ImageUploader
+src/routes/api/admin/subscriptions.ts:19:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/users/index.ts:20:    const { searchParams } = new URL(request.url);
+src/routes/api/admin/users/index.ts:48:        image: user.image,
+src/routes/characters.tsx:38:          image="/imgs/generated/fw-character-masthead.webp"
+src/routes/api/admin/users/credits.ts:53:        scene: CreditTransactionScene.GIFT,
+src/routes/api/user/info.ts:34:      image: session.user.image,

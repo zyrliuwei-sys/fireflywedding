@@ -35,7 +35,6 @@ function Page() {
           crumb={m['fw.nav.characters']()}
           title={m['fw.charspage.title']()}
           intro={m['fw.charspage.intro']()}
-          image="/imgs/generated/fw-character-masthead.webp"
         />
         <FwCharacters full showHeading={false} />
       </main>

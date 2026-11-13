@@ -8,10 +8,9 @@
  * into the entry chunk.
  */
 
-export function optSrcSet(name: string, widths: number[], ext: string) {
-  return widths
-    .map((w) => `/imgs/generated/opt/${name}-${w}.${ext} ${w}w`)
-    .join(', ');
+export function optSrcSet(_name: string, _widths: number[], _ext: string) {
+  // Unverified demo media was removed during the copyright audit.
+  return '/imgs/artwork-omitted.svg';
 }
 
 export const HERO_DESKTOP_WIDTHS = [960, 1280, 1672];

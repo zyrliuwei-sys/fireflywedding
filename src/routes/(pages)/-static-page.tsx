@@ -1,14 +1,10 @@
 import { lazy, Suspense, type ComponentType } from 'react';
 import { notFound, useLoaderData } from '@tanstack/react-router';
 
-import { envConfigs } from '@/config';
+import { isEnglishGuide } from '@/config/guide-pages';
+import { pageHead } from '@/lib/seo';
 import { m } from '@/paraglide/messages.js';
-import {
-  baseLocale,
-  getLocale,
-  locales,
-  localizeUrl,
-} from '@/paraglide/runtime.js';
+import { baseLocale, getLocale } from '@/paraglide/runtime.js';
 
 type PageMeta = {
   title: string;
@@ -51,10 +47,10 @@ type LoaderData = { meta: PageMeta; slug: string; locale: string };
 // explicit route file (e.g. privacy-policy.tsx) so static segments
 // always outrank dynamic ones — add a new page by creating the MDX
 // content plus a thin route file using this factory.
-export function staticPageRouteOptions(slug: string) {
+export function staticPageRouteOptions(slug: string, path = `/${slug}`) {
   return {
     loader: (): LoaderData => {
-      const locale = getLocale();
+      const locale = isEnglishGuide(path) ? 'en' : getLocale();
       const key = pageKey(slug, locale);
       if (!key) throw notFound();
       return { meta: metas[key], slug, locale };
@@ -62,37 +58,18 @@ export function staticPageRouteOptions(slug: string) {
     head: ({ loaderData }: { loaderData?: LoaderData }) => {
       if (!loaderData) return {};
       const { meta, locale } = loaderData;
-      const canonical = localizeUrl(`${envConfigs.app_url}/${slug}`, {
-        locale: locale as ReturnType<typeof getLocale>,
-      }).href;
-      return {
-        meta: [
-          { title: meta.title },
-          { name: 'description', content: meta.description },
-        ],
-        links: [
-          { rel: 'canonical', href: canonical },
-          ...locales.map((loc) => ({
-            rel: 'alternate',
-            hrefLang: loc,
-            href: localizeUrl(`${envConfigs.app_url}/${slug}`, { locale: loc })
-              .href,
-          })),
-          {
-            rel: 'alternate',
-            hrefLang: 'x-default',
-            href: localizeUrl(`${envConfigs.app_url}/${slug}`, {
-              locale: baseLocale,
-            }).href,
-          },
-        ],
-      };
+      return pageHead({
+        path,
+        locale,
+        title: meta.title,
+        description: meta.description,
+      });
     },
     component: StaticPage,
   };
 }
 
-function StaticPage() {
+export function StaticPage() {
   const { meta, slug, locale } = useLoaderData({
     strict: false,
   }) as LoaderData;
@@ -102,7 +79,7 @@ function StaticPage() {
   return (
     <article>
       <header className="border-border mb-6 border-b pb-5">
-        <h1 className="text-foreground text-3xl font-semibold tracking-tight md:text-4xl">
+        <h1 className="fw-display text-foreground text-4xl tracking-tight md:text-5xl">
           {/* The "| Site" suffix belongs in <title>, not the heading. */}
           {meta.title.split(' | ')[0]}
         </h1>
@@ -111,7 +88,7 @@ function StaticPage() {
           {m['common.pages.last_updated']()}: {meta.updated_at}
         </p>
       </header>
-      <div className="text-foreground/90 text-[15px] leading-7">
+      <div className="fw-information text-foreground/90 text-[15px] leading-7">
         <Suspense fallback={null}>
           <Content />
         </Suspense>

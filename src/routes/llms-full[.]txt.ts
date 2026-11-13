@@ -42,6 +42,84 @@ const STATIC_PAGES: { path: string; title: string; description: string }[] = [
     title: 'Terms of Service',
     description: 'Terms of use',
   },
+  {
+    path: '/about',
+    title: 'About this independent site',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/contact',
+    title: 'Contact and rights requests',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/episodes',
+    title: 'Official episode summary index',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/staff',
+    title: 'Official production and cast credits',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/manga-vs-anime',
+    title: 'Manga and anime entry points',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/where-to-watch',
+    title: 'Official viewing platforms',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/schedule',
+    title: 'Broadcast schedule and time zones',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/characters/satoko-kirigaya',
+    title: 'Satoko Kirigaya',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/characters/shinpei-goto',
+    title: 'Shinpei Gotō',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/characters/kotaro-ogawa',
+    title: 'Kōtarō Ogawa',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/characters/mitsueda',
+    title: 'Mitsueda',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/characters/mitsuharu-okumura',
+    title: 'Mitsuharu Okumura status',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
+  {
+    path: '/characters/jubei-kirigaya',
+    title: 'Jūbei Kirigaya',
+    description:
+      'English information with official sources; unverified fields are labelled.',
+  },
 ];
 
 export const Route = createFileRoute('/llms-full.txt')({

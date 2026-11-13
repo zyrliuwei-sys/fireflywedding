@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
+import { ENGLISH_GUIDE_PATHS, isEnglishGuide } from '@/config/guide-pages';
 import { baseLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 
 const STATIC_PATHS = [
@@ -11,6 +12,7 @@ const STATIC_PATHS = [
   '/news',
   '/privacy-policy',
   '/terms-of-service',
+  ...ENGLISH_GUIDE_PATHS,
 ];
 
 type Entry = {
@@ -30,14 +32,15 @@ function urlFor(path: string, locale: string): string {
 // recommended hreflang form) — so /zh pages are real <loc>s that crawlers and
 // the IndexNow sitemap submit pick up, not just alternates of the en page.
 function entryXml(e: Entry): string {
+  const entryLocales = isEnglishGuide(e.path) ? (['en'] as const) : locales;
   const alternates = [
-    ...locales.map(
+    ...entryLocales.map(
       (loc) =>
         `    <xhtml:link rel="alternate" hreflang="${loc}" href="${urlFor(e.path, loc)}"/>`
     ),
     `    <xhtml:link rel="alternate" hreflang="x-default" href="${urlFor(e.path, baseLocale)}"/>`,
   ].join('\n');
-  return locales
+  return entryLocales
     .map((loc) =>
       [
         '  <url>',

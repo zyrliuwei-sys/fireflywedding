@@ -14,7 +14,7 @@ export const FAL_MOTION_USD_PER_SECOND = 0.05;
 export const PRICE_MARKUP = 7;
 export const USD_PER_CREDIT = 0.01;
 
-// Length of the shipped reference video (public/videos/hotel-lobby-reference.mp4).
+// Default duration; a licensed reference video must be configured separately.
 // Set hotel_lobby_video_seconds in admin if a different video is configured.
 export const DEFAULT_REFERENCE_SECONDS = 8;
 

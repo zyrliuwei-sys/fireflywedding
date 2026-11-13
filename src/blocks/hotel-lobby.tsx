@@ -53,12 +53,12 @@ const SiteUserMenu = lazy(() =>
 );
 const PaywallDialog = lazy(() => import('@/blocks/paywall-dialog'));
 
-const heroImage = '/imgs/generated/hotel-lobby-duet.png';
-const mobileHeroImage = '/imgs/generated/duet-hero-mobile.jpg';
-const previewImage = '/imgs/generated/duet-scene-preview.jpg';
-const friendsImage = '/imgs/generated/duet-friends.jpg';
-const siblingsImage = '/imgs/generated/duet-siblings.jpg';
-const coupleImage = '/imgs/generated/duet-couple.jpg';
+const heroImage = '/imgs/artwork-omitted.svg';
+const mobileHeroImage = '/imgs/artwork-omitted.svg';
+const previewImage = '/imgs/artwork-omitted.svg';
+const friendsImage = '/imgs/artwork-omitted.svg';
+const siblingsImage = '/imgs/artwork-omitted.svg';
+const coupleImage = '/imgs/artwork-omitted.svg';
 
 const IDEA_SIZES = '(max-width: 600px) 100vw, (max-width: 1020px) 50vw, 420px';
 

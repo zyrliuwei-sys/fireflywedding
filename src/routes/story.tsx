@@ -35,7 +35,6 @@ function Page() {
           crumb={m['fw.nav.story']()}
           title={m['fw.storypage.title']()}
           intro={m['fw.storypage.intro']()}
-          image="/imgs/generated/fw-story-masthead.webp"
         />
         <FwStory full showHeading={false} />
       </main>

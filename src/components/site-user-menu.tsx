@@ -1,12 +1,10 @@
-'use client';
-
 import { LogOutIcon, SettingsIcon, ShieldIcon } from 'lucide-react';
 
 import { signOut } from '@/core/auth/client';
 import { Link, useRouter } from '@/core/i18n/navigation';
 import { m } from '@/paraglide/messages.js';
 import { useUserPermissions } from '@/hooks/use-user-permissions';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,7 +18,6 @@ import {
 export function SiteUserMenu({
   name,
   email,
-  image,
 }: {
   name: string;
   email: string;
@@ -39,7 +36,6 @@ export function SiteUserMenu({
     <DropdownMenu>
       <DropdownMenuTrigger className="focus-visible:ring-ring rounded-full outline-none focus-visible:ring-2">
         <Avatar className="size-9">
-          <AvatarImage src={image || undefined} alt={name} />
           <AvatarFallback className="text-xs">
             {name.charAt(0).toUpperCase()}
           </AvatarFallback>
@@ -50,7 +46,6 @@ export function SiteUserMenu({
           <DropdownMenuLabel className="p-0 font-normal">
             <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
               <Avatar className="size-8">
-                <AvatarImage src={image || undefined} alt={name} />
                 <AvatarFallback className="text-xs">
                   {name.charAt(0).toUpperCase()}
                 </AvatarFallback>

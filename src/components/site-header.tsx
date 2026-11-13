@@ -1,5 +1,3 @@
-'use client';
-
 import { lazy, Suspense, useState } from 'react';
 import type React from 'react';
 import { ArrowRight, Menu, X } from 'lucide-react';
@@ -67,7 +65,7 @@ export function SiteHeader({
         </Link>
 
         {/* Desktop nav */}
-        <nav className="ml-auto hidden items-center gap-1 md:flex">
+        <nav className="ml-auto hidden items-center gap-1 lg:flex">
           {navLinks?.map((link) =>
             isExternalHref(link.href) ? (
               <a
@@ -93,7 +91,7 @@ export function SiteHeader({
         </nav>
 
         {/* Desktop actions */}
-        <div className="hidden h-full items-center gap-2 pl-3 md:flex">
+        <div className="hidden h-full items-center gap-2 pl-3 lg:flex">
           <LocaleToggle />
           <ThemeToggle label={m['common.nav.toggle_theme']()} />
           {user ? (
@@ -137,7 +135,7 @@ export function SiteHeader({
 
         {/* Mobile toggle */}
         <button
-          className="mr-2 p-2 md:hidden"
+          className="mr-2 p-2 lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={
             mobileOpen
@@ -152,7 +150,7 @@ export function SiteHeader({
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="bg-background border-border border-b px-4 pt-2 pb-4 md:hidden">
+        <div className="bg-background border-border border-b px-4 pt-2 pb-4 lg:hidden">
           <nav className="flex flex-col gap-2">
             {navLinks?.map((link) =>
               isExternalHref(link.href) ? (

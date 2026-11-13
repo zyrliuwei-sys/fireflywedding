@@ -126,8 +126,7 @@
   inset: 0;
   content: '';
   /* Blurred backdrop — a 960px WebP is plenty (preloaded in routes/index.tsx) */
-  background: url('/imgs/generated/opt/studio-backdrop-960.webp') center / cover
-    no-repeat;
+  background: url('/imgs/artwork-omitted.svg') center / cover no-repeat;
   filter: brightness(0.8);
 }
 .hl-hero-frame picture {

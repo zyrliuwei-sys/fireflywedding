@@ -1,3 +1,5 @@
+import { usePathname } from '@/core/i18n/navigation';
+import { isEnglishGuide } from '@/config/guide-pages';
 import { localeNames } from '@/config/locale';
 import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
@@ -5,8 +7,10 @@ import { getLocale, locales, setLocale } from '@/paraglide/runtime.js';
 
 /** Two-locale switch as a plain button — no dropdown in the public bundle. */
 export function LocaleToggle({ className }: { className?: string }) {
+  const pathname = usePathname();
   const current = getLocale();
   const next = locales.find((l) => l !== current) ?? current;
+  if (isEnglishGuide(pathname)) return null;
 
   return (
     <button

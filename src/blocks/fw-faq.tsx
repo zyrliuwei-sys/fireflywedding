@@ -1,14 +1,29 @@
+import {
+  OFFICIAL_ANIME_URL,
+  OFFICIAL_EPISODES_URL,
+  OFFICIAL_ONAIR_URL,
+  OFFICIAL_STAFF_URL,
+} from '@/config/firefly';
 import { m } from '@/paraglide/messages.js';
 import { Reveal } from '@/components/reveal';
 import { RevealHeading } from '@/components/reveal-heading';
 
+const SOURCES = [
+  OFFICIAL_ONAIR_URL,
+  'https://www.aniplex.co.jp/hotaru-anime/',
+  OFFICIAL_ANIME_URL + 'comics/',
+  OFFICIAL_STAFF_URL,
+  OFFICIAL_EPISODES_URL,
+  OFFICIAL_ANIME_URL,
+];
+
 export const FW_FAQ = [
-  { q: () => m['fw.faq.q1'](), a: () => m['fw.faq.a1']() },
-  { q: () => m['fw.faq.q2'](), a: () => m['fw.faq.a2']() },
-  { q: () => m['fw.faq.q3'](), a: () => m['fw.faq.a3']() },
-  { q: () => m['fw.faq.q4'](), a: () => m['fw.faq.a4']() },
-  { q: () => m['fw.faq.q5'](), a: () => m['fw.faq.a5']() },
-  { q: () => m['fw.faq.q6'](), a: () => m['fw.faq.a6']() },
+  { q: () => m['fw.faq.q1'](), a: () => m['fw.faq.a1'](), source: SOURCES[0] },
+  { q: () => m['fw.faq.q2'](), a: () => m['fw.faq.a2'](), source: SOURCES[1] },
+  { q: () => m['fw.faq.q3'](), a: () => m['fw.faq.a3'](), source: SOURCES[2] },
+  { q: () => m['fw.faq.q4'](), a: () => m['fw.faq.a4'](), source: SOURCES[3] },
+  { q: () => m['fw.faq.q5'](), a: () => m['fw.faq.a5'](), source: SOURCES[4] },
+  { q: () => m['fw.faq.q6'](), a: () => m['fw.faq.a6'](), source: SOURCES[5] },
 ];
 
 /** FAQ rendered open (not an accordion) so every answer is readable and indexable. */
@@ -27,6 +42,12 @@ export function FwFaq({ items = FW_FAQ }: { items?: typeof FW_FAQ }) {
               </dt>
               <dd className="text-foreground/75 mt-3 text-base leading-relaxed">
                 {item.a()}
+                <a
+                  href={item.source}
+                  className="mt-3 block text-sm underline underline-offset-4"
+                >
+                  {m['fw.source']()} ↗
+                </a>
               </dd>
             </Reveal>
           ))}

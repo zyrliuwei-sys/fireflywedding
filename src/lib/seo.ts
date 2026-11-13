@@ -1,4 +1,5 @@
 import { envConfigs } from '@/config';
+import { isEnglishGuide } from '@/config/guide-pages';
 import { locales, localizeUrl } from '@/paraglide/runtime.js';
 
 type Locale = (typeof locales)[number];
@@ -19,7 +20,7 @@ export function pageHead({
   locale,
   title,
   description,
-  image = '/imgs/firefly/anime-key-visual.webp',
+  image,
   jsonLd,
 }: {
   path: string;
@@ -30,7 +31,6 @@ export function pageHead({
   jsonLd?: unknown;
 }) {
   const url = localizedUrl(path, locale);
-  const ogImage = `${envConfigs.app_url}${image}`;
   return {
     meta: [
       { title },
@@ -39,13 +39,18 @@ export function pageHead({
       { property: 'og:description', content: description },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: url },
-      { property: 'og:image', content: ogImage },
+      ...(image
+        ? [{ property: 'og:image', content: `${envConfigs.app_url}${image}` }]
+        : []),
       { property: 'og:site_name', content: envConfigs.app_name },
-      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:card',
+        content: image ? 'summary_large_image' : 'summary',
+      },
     ],
     links: [
       { rel: 'canonical', href: url },
-      ...locales.map((loc) => ({
+      ...(isEnglishGuide(path) ? (['en'] as const) : locales).map((loc) => ({
         rel: 'alternate',
         hrefLang: loc,
         href: localizedUrl(path, loc),

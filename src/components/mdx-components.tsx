@@ -1,6 +1,7 @@
 import type { AnchorHTMLAttributes, HTMLAttributes } from 'react';
 import type { MDXComponents } from 'mdx/types';
 
+import { Link } from '@/core/i18n/navigation';
 import { cn } from '@/lib/utils';
 
 export const mdxComponents: MDXComponents = {
@@ -38,13 +39,32 @@ export const mdxComponents: MDXComponents = {
     />
   ),
   a: ({ className, ...props }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a
+    <Link
+      href={props.href ?? '#'}
       className={cn(
         'text-primary font-medium underline-offset-4 hover:underline',
         className
       )}
       {...props}
     />
+  ),
+  table: ({ children }) => (
+    <div
+      className="my-6 max-w-full overflow-x-auto rounded-lg border"
+      tabIndex={0}
+      role="region"
+      aria-label="Information table"
+    >
+      <table className="w-full min-w-[620px] text-left text-sm">
+        {children}
+      </table>
+    </div>
+  ),
+  th: ({ children }) => (
+    <th className="bg-muted px-4 py-3 align-top font-semibold">{children}</th>
+  ),
+  td: ({ children }) => (
+    <td className="border-t px-4 py-3 align-top leading-6">{children}</td>
   ),
   ul: ({ className, ...props }: HTMLAttributes<HTMLUListElement>) => (
     <ul

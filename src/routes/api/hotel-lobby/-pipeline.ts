@@ -63,25 +63,22 @@ export function buildScenePrompt(
 }
 
 /**
- * Reference performance for a video length. Each defaults to a shipped clip
- * (8 s: hotel-lobby-reference.mp4, 15 s: the verse); hotel_lobby_motion_video_url
- * / _15 override them. fal fetches it, so the URL must be absolute and public.
+ * Reference performance for a video length. Unverified demo clips were removed;
+ * the operator must provide a licensed, absolute public URL for fal to fetch.
  */
 export function motionVideoFor(
   configs: Record<string, string>,
   length: DuetLength
 ) {
-  const appUrl = configs.app_url || envConfigs.app_url;
-  if (length === '8') {
-    return (
-      configs.hotel_lobby_motion_video_url ||
-      `${appUrl}/videos/hotel-lobby-reference.mp4`
+  const video =
+    length === '8'
+      ? configs.hotel_lobby_motion_video_url
+      : configs.hotel_lobby_motion_video_url_15;
+  if (!video)
+    throw new Error(
+      'Configure a licensed reference video before using this template feature.'
     );
-  }
-  return (
-    configs.hotel_lobby_motion_video_url_15 ||
-    `${appUrl}/videos/hotel-lobby-verse15.mp4`
-  );
+  return video;
 }
 
 // Client downsizes photos before upload; this is a hard ceiling per photo.

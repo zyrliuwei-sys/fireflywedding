@@ -37,7 +37,6 @@ function Page() {
           title={m['fw.watchpage.title']()}
           intro={m['fw.watchpage.intro']()}
           jp="ホタルの嫁入り"
-          image="/imgs/generated/fw-watch-masthead.webp"
         />
         <FwWatch full showHeading={false} />
         <FwFaq items={[FW_FAQ[0], FW_FAQ[1], FW_FAQ[5]]} />

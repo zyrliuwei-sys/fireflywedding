@@ -1,13 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { envConfigs } from '@/config';
-import {
-  CHARACTERS,
-  EPISODE_COUNT,
-  OFFICIAL_ANIME_URL,
-  PREMIERE_JST,
-} from '@/config/firefly';
-import { srcSet } from '@/lib/img';
 import { pageHead } from '@/lib/seo';
 import { m } from '@/paraglide/messages.js';
 import { getLocale } from '@/paraglide/runtime.js';
@@ -34,26 +26,6 @@ export const Route = createFileRoute('/')({
       jsonLd: [
         {
           '@context': 'https://schema.org',
-          '@type': 'TVSeries',
-          name: 'Firefly Wedding',
-          alternateName: ['ホタルの嫁入り', 'Hotaru no Yomeiri', '萤火之嫁'],
-          startDate: PREMIERE_JST.slice(0, 10),
-          numberOfEpisodes: EPISODE_COUNT,
-          genre: ['Historical', 'Romance'],
-          productionCompany: {
-            '@type': 'Organization',
-            name: 'david production',
-          },
-          director: { '@type': 'Person', name: 'Takahiro Kamei' },
-          actor: CHARACTERS.filter((c) => c.cv).map((c) => ({
-            '@type': 'Person',
-            name: c.cv!.en,
-          })),
-          sameAs: [OFFICIAL_ANIME_URL],
-          image: `${envConfigs.app_url}/imgs/firefly/anime-key-visual.webp`,
-        },
-        {
-          '@context': 'https://schema.org',
           '@type': 'FAQPage',
           inLanguage: locale,
           mainEntity: FW_FAQ.map((f) => ({
@@ -64,25 +36,7 @@ export const Route = createFileRoute('/')({
         },
       ],
     });
-    return {
-      ...head,
-      links: [
-        {
-          rel: 'preload',
-          as: 'image',
-          // Must mirror the hero <img> srcSet/sizes or the preload is wasted.
-          imageSrcSet: srcSet(
-            '/imgs/firefly/anime-poster.webp',
-            [480, 840],
-            990
-          ),
-          imageSizes:
-            '(min-width: 1280px) 420px, (min-width: 640px) 60vw, 100vw',
-          fetchPriority: 'high',
-        },
-        ...head.links,
-      ],
-    };
+    return head;
   },
   component: HomePage,
 });

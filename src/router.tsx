@@ -1,5 +1,6 @@
 import { createRouter } from '@tanstack/react-router';
 
+import { isEnglishGuide } from '@/config/guide-pages';
 import { deLocalizeUrl, localizeUrl } from '@/paraglide/runtime.js';
 
 import { routeTree } from './routeTree.gen';
@@ -15,7 +16,11 @@ export function getRouter() {
     // matching (routes are locale-free), outgoing hrefs get re-localized.
     rewrite: {
       input: ({ url }) => deLocalizeUrl(url),
-      output: ({ url }) => localizeUrl(url),
+      output: ({ url }) =>
+        localizeUrl(
+          url,
+          isEnglishGuide(url.pathname) ? { locale: 'en' } : undefined
+        ),
     },
   });
   return router;

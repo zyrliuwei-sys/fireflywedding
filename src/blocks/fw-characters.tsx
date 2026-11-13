@@ -1,7 +1,11 @@
 import { ArrowRight } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
-import { CHARACTERS, type Character } from '@/config/firefly';
+import {
+  CHARACTERS,
+  OFFICIAL_CHARACTER_URL,
+  type Character,
+} from '@/config/firefly';
 import { m } from '@/paraglide/messages.js';
 import { getLocale } from '@/paraglide/runtime.js';
 import { FireflyField } from '@/components/firefly-field';
@@ -68,24 +72,9 @@ function LeadCard({
         >
           {c.glyph}
         </span>
-        {c.portrait ? (
-          <img
-            src={c.portrait}
-            alt={zh ? c.ja : c.name}
-            width={360}
-            height={360}
-            loading="lazy"
-            className="relative aspect-[4/5] w-[46%] max-w-[300px] rounded-t-full object-cover object-top shadow-[0_-10px_40px_-10px_color-mix(in_oklab,var(--glow)_35%,transparent)]"
-          />
-        ) : (
-          <span
-            aria-hidden
-            lang="ja"
-            className="fw-mincho relative mb-6 text-[clamp(6rem,12vw,10rem)] leading-none text-white/90"
-          >
-            {c.glyph}
-          </span>
-        )}
+        <p className="relative mb-6 max-w-[180px] text-xs leading-6 text-white/60">
+          {m['fw.artwork.notice']()}
+        </p>
       </div>
       <div className="p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -111,6 +100,12 @@ function LeadCard({
         <p className="text-foreground/75 mt-4 text-base leading-relaxed">
           {BODY[c.id]?.()}
         </p>
+        <Link
+          href={'/characters/' + c.slug}
+          className="mt-5 inline-block text-sm underline underline-offset-4"
+        >
+          {m['fw.chars.profile']()} ↗
+        </Link>
       </div>
     </NodeCard>
   );
@@ -155,6 +150,12 @@ function SupportCard({ c, zh }: { c: Character; zh: boolean }) {
       <p className="text-foreground/70 relative mt-2 text-sm leading-relaxed">
         {BODY[c.id]?.()}
       </p>
+      <Link
+        href={'/characters/' + c.slug}
+        className="relative mt-5 inline-block text-sm underline underline-offset-4"
+      >
+        {m['fw.chars.profile']()} ↗
+      </Link>
     </div>
   );
 }
@@ -200,6 +201,12 @@ export function FwCharacters({
           ))}
         </div>
 
+        <a
+          href={OFFICIAL_CHARACTER_URL}
+          className="mt-8 block text-sm underline underline-offset-4"
+        >
+          {m['fw.chars.source']()} ↗
+        </a>
         {!full && (
           <Link
             href="/characters"
