@@ -542,5 +542,186 @@
     "rendered_visible": true,
     "deployment_version": "b33beb55-c510-4476-93e8-56be5be3d5a9"
   },
-  "latest_deployment_version": "b33beb55-c510-4476-93e8-56be5be3d5a9"
+  "latest_deployment_version": "1b17779e-b406-4ce2-9e66-ec686852989a",
+  "adsense_head": {
+    "checked_at": "2026-11-13",
+    "deployment_version": "1b17779e-b406-4ce2-9e66-ec686852989a",
+    "pages": [
+      {
+        "path": "/",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/watch",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/story",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/characters",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/news",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/about",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/contact",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/episodes",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/staff",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/manga-vs-anime",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/where-to-watch",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/schedule",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/characters/satoko-kirigaya",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/characters/shinpei-goto",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/characters/kotaro-ogawa",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/characters/mitsueda",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/characters/mitsuharu-okumura",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/characters/jubei-kirigaya",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/privacy-policy",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      },
+      {
+        "path": "/terms-of-service",
+        "status": 200,
+        "meta_count": 1,
+        "meta_matches": true,
+        "script_count": 1,
+        "script_matches": true
+      }
+    ],
+    "browser_head": {
+      "meta": ["ca-pub-2841223102464177"],
+      "scripts": [
+        {
+          "src": "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2841223102464177",
+          "async": true,
+          "crossOrigin": "anonymous"
+        }
+      ]
+    },
+    "ads_txt": {
+      "status": 200,
+      "exact_match": true,
+      "newline_count": 0
+    }
+  }
 }

@@ -16,6 +16,7 @@ import { ThemeProvider } from 'next-themes';
 
 import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
+import { ADSENSE_PUBLISHER_ID } from '@/config/adsense';
 import { getQueryClient } from '@/lib/query-client';
 import { m } from '@/paraglide/messages.js';
 import { getLocale } from '@/paraglide/runtime.js';
@@ -48,7 +49,7 @@ const getAnalyticsConfigs = createServerFn().handler(async () => {
     plausibleDomain: configs.plausible_domain?.trim() || '',
     plausibleSrc: configs.plausible_src?.trim() || '',
     clarityProjectId: configs.clarity_project_id?.trim() || '',
-    adsenseCode: configs.adsense_code?.trim() || '',
+    adsenseCode: configs.adsense_code?.trim() || ADSENSE_PUBLISHER_ID,
     crispWebsiteId:
       configs.crisp_enabled === 'true'
         ? configs.crisp_website_id?.trim() || ''
@@ -66,11 +67,15 @@ const getAnalyticsConfigs = createServerFn().handler(async () => {
 
 export const Route = createRootRoute({
   loader: () => getAnalyticsConfigs(),
-  head: () => {
+  head: ({ loaderData }) => {
     return {
       meta: [
         { charSet: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          name: 'google-adsense-account',
+          content: loaderData?.adsenseCode || ADSENSE_PUBLISHER_ID,
+        },
         { title: envConfigs.app_name },
         { name: 'description', content: m['common.metadata.description']() },
       ],

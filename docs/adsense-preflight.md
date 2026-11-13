@@ -80,3 +80,11 @@ Cloudflare 发布已成功。线上页面、sitemap、已删除媒体与公开�
 已按用户指定内容将 `/ads.txt` 改为固定单行响应，不再依赖数据库字段生成。内容为 `google.com, pub-2841223102464177, DIRECT, f08c47fec0942fa0`，响应体 58 字节，无 BOM、无换行、无末尾空行。
 
 已通过 `pnpm build` 与安全工作区扫描，并再次部署至 Cloudflare；最新部署版本为 `b33beb55-c510-4476-93e8-56be5be3d5a9`。浏览器访问验证结果另见 `production-deployment-verification.json` 的 `ads_txt` 字段。
+
+## AdSense 账户 meta 与加载脚本
+
+账户 ID 已在 `src/config/adsense.ts` 统一维护为 `ca-pub-2841223102464177`，`ads.txt` 的记录由同一默认 ID 派生，保持原来要求的精确单行响应。
+
+全站根路由的 head 声明 `google-adsense-account` meta。既有异步加载组件保留 `async`、`crossorigin="anonymous"` 与指定的 Google 脚本 URL；账户 meta 从该组件移除，避免重复。后台未设置发布商 ID 时使用此次指定的默认值。
+
+`pnpm build`、TypeScript 与安全扫描通过；已发布 Cloudflare 版本 `1b17779e-b406-4ce2-9e66-ec686852989a`。线上逐页源码和浏览器 head 检查记录位于 `production-deployment-verification.json` 的 `adsense_head` 字段。
