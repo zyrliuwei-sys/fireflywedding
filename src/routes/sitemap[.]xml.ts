@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { envConfigs } from '@/config';
 import { ENGLISH_GUIDE_PATHS, isEnglishGuide } from '@/config/guide-pages';
 import { baseLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
+import { getLocalPosts } from '@/content/posts';
 
 const STATIC_PATHS = [
   '',
@@ -63,33 +64,36 @@ export const Route = createFileRoute('/sitemap.xml')({
       GET: async () => {
         const entries: Entry[] = STATIC_PATHS.map((path) => ({
           path,
-          changeFrequency: path === '/blog' ? 'daily' : 'weekly',
+          changeFrequency: 'weekly',
           priority: path === '' ? 1 : 0.8,
         }));
 
-        // Only published project articles belong in the sitemap. The bundled
-        // ShipAny tutorial posts are demo content and carry noindex.
+        const postDates = new Map(
+          getLocalPosts(baseLocale).map((post) => [post.slug, post.createdAt])
+        );
         try {
           const { listPublishedArticles } =
             await import('@/modules/posts/service');
-          const rows = await listPublishedArticles().catch(() => []);
-          if (rows.length > 0) {
-            entries.push({
-              path: '/blog',
-              changeFrequency: 'weekly',
-              priority: 0.7,
-            });
-          }
-          for (const post of rows) {
-            entries.push({
-              path: `/blog/${post.slug}`,
-              lastModified: new Date(post.createdAt).toISOString(),
-              changeFrequency: 'monthly',
-              priority: 0.6,
-            });
+          for (const post of await listPublishedArticles()) {
+            postDates.set(post.slug, new Date(post.createdAt).toISOString());
           }
         } catch {
-          // Database unreachable — keep the static project pages.
+          // Bundled editorial posts remain available without the database.
+        }
+        if (postDates.size > 0) {
+          entries.push({
+            path: '/blog',
+            changeFrequency: 'weekly',
+            priority: 0.7,
+          });
+        }
+        for (const [slug, lastModified] of postDates) {
+          entries.push({
+            path: `/blog/${slug}`,
+            lastModified,
+            changeFrequency: 'monthly',
+            priority: 0.6,
+          });
         }
 
         const xml = [

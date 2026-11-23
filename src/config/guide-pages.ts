@@ -17,5 +17,9 @@ export const ENGLISH_GUIDE_PATHS = [
 
 export function isEnglishGuide(path: string) {
   const normalized = path.replace(/^\/zh(?=\/|$)/, '').replace(/\/$/, '');
-  return (ENGLISH_GUIDE_PATHS as readonly string[]).includes(normalized);
+  return (
+    normalized === '/blog' ||
+    normalized.startsWith('/blog/') ||
+    (ENGLISH_GUIDE_PATHS as readonly string[]).includes(normalized)
+  );
 }

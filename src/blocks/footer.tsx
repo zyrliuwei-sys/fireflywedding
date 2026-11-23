@@ -17,6 +17,7 @@ export function Footer() {
         { label: m['fw.nav.platforms'](), href: '/where-to-watch' },
         { label: m['fw.nav.staff'](), href: '/staff' },
         { label: m['fw.nav.comparison'](), href: '/manga-vs-anime' },
+        { label: m['landing.footer.blog'](), href: '/blog' },
       ],
     },
     {

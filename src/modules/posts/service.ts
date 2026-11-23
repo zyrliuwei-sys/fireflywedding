@@ -116,6 +116,7 @@ export async function findPublishedBySlug(
     .where(
       and(
         eq(post.slug, slug.toLowerCase()),
+        eq(post.type, PostType.ARTICLE),
         eq(post.status, PostStatus.PUBLISHED)
       )
     )

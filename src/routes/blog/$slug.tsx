@@ -1,58 +1,52 @@
-import { createFileRoute, notFound, redirect } from '@tanstack/react-router';
+import { lazy, Suspense } from 'react';
+import { createFileRoute, notFound } from '@tanstack/react-router';
 import { MDXProvider } from '@mdx-js/react';
 import { ArrowLeft, Calendar } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
+import { pageHead } from '@/lib/seo';
 import { m } from '@/paraglide/messages.js';
-import { getLocale, localizeUrl } from '@/paraglide/runtime.js';
 import { Footer } from '@/blocks/footer';
 import { Header } from '@/blocks/header';
-import { MarkdownContent } from '@/components/markdown-content';
 import { mdxComponents } from '@/components/mdx-components';
 import { formatPostDate, loadLocalPost } from '@/content/posts';
 import { getBlogPostFn } from '@/content/posts/server';
 
+const DatabasePostContent = lazy(() =>
+  import('@/components/markdown-content').then(({ MarkdownContent }) => ({
+    default: MarkdownContent,
+  }))
+);
+
 export const Route = createFileRoute('/blog/$slug')({
-  // Leftover from the template: not part of the fan site, so send visitors home.
-  beforeLoad: () => {
-    throw redirect({ to: '/' });
-  },
   loader: async ({ params }) => {
-    const locale = getLocale();
     const post = await getBlogPostFn({
-      data: { slug: params.slug, locale },
+      data: { slug: params.slug, locale: 'en' },
     });
     if (!post) throw notFound();
-    return { locale, post };
+    return { post };
   },
   head: ({ loaderData }) => {
     if (!loaderData) return {};
-    const { locale, post } = loaderData;
-    const canonical = localizeUrl(`${envConfigs.app_url}/blog/${post.slug}`, {
-      locale: locale as any,
-    }).href;
-    return {
-      meta: [
-        { title: `${post.title} | ${envConfigs.app_name}` },
-        { name: 'description', content: post.description },
-        ...(post.source === 'local'
-          ? [{ name: 'robots', content: 'noindex,follow' }]
-          : []),
-      ],
-      links: [{ rel: 'canonical', href: canonical }],
-    };
+    const { post } = loaderData;
+    return pageHead({
+      path: `/blog/${post.slug}`,
+      locale: 'en',
+      title: `${post.title} | ${envConfigs.app_name}`,
+      description: post.description,
+    });
   },
   component: BlogPostPage,
 });
 
 function BlogPostPage() {
-  const { locale, post } = Route.useLoaderData();
+  const { post } = Route.useLoaderData();
 
   // Local posts render their bundled MDX component; database posts render
   // raw markdown through MarkdownContent.
   const LocalContent =
-    post.source === 'local' ? loadLocalPost(post.slug, locale)?.default : null;
+    post.source === 'local' ? loadLocalPost(post.slug, 'en')?.default : null;
 
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col">
@@ -77,7 +71,7 @@ function BlogPostPage() {
             <div className="text-muted-foreground mt-4 flex items-center gap-4 text-sm">
               <span className="inline-flex items-center gap-1.5">
                 <Calendar className="size-4" />
-                {formatPostDate(post.createdAt, locale)}
+                {formatPostDate(post.createdAt, 'en')}
               </span>
               {(post.authorName || post.authorImage) && (
                 <span className="inline-flex items-center gap-2">
@@ -111,7 +105,9 @@ function BlogPostPage() {
               </MDXProvider>
             </div>
           ) : (
-            <MarkdownContent content={post.content || ''} />
+            <Suspense fallback={null}>
+              <DatabasePostContent content={post.content || ''} />
+            </Suspense>
           )}
         </article>
       </main>

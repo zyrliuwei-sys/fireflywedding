@@ -1,8 +1,8 @@
-import { createFileRoute, redirect } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
+import { pageHead } from '@/lib/seo';
 import { m } from '@/paraglide/messages.js';
-import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { Footer } from '@/blocks/footer';
 import { Header } from '@/blocks/header';
 import { BlogCard } from '@/components/blog-card';
@@ -10,50 +10,28 @@ import { formatPostDate } from '@/content/posts';
 import { getBlogPostsFn } from '@/content/posts/server';
 
 export const Route = createFileRoute('/blog/')({
-  // Leftover from the template: not part of the fan site, so send visitors home.
-  beforeLoad: () => {
-    throw redirect({ to: '/' });
-  },
   loader: async () => {
-    const locale = getLocale();
-    const posts = await getBlogPostsFn({ data: { locale } });
-    return { locale, posts };
+    const posts = await getBlogPostsFn({ data: { locale: 'en' } });
+    return { posts };
   },
   head: ({ loaderData }) => {
-    const locale = loaderData?.locale;
-    const hasPublishedPosts = loaderData?.posts.some(
-      (post) => post.source === 'db'
-    );
-    const urlFor = (loc: string) =>
-      localizeUrl(`${envConfigs.app_url}/blog`, { locale: loc as any }).href;
+    const head = pageHead({
+      path: '/blog',
+      locale: 'en',
+      title: `${m['blog.title']({}, { locale: 'en' })} | ${envConfigs.app_name}`,
+      description: m['blog.description']({}, { locale: 'en' }),
+    });
+    if (loaderData?.posts.length) return head;
     return {
-      meta: [
-        {
-          title: `${m['blog.title']({}, { locale: locale as any })} | ${envConfigs.app_name}`,
-        },
-        {
-          name: 'description',
-          content: m['blog.description']({}, { locale: locale as any }),
-        },
-        ...(!hasPublishedPosts
-          ? [{ name: 'robots', content: 'noindex,follow' }]
-          : []),
-      ],
-      links: [
-        { rel: 'canonical', href: urlFor(locale ?? 'en') },
-        ...locales.map((loc) => ({
-          rel: 'alternate',
-          hrefLang: loc,
-          href: urlFor(loc),
-        })),
-      ],
+      ...head,
+      meta: [...head.meta, { name: 'robots', content: 'noindex,follow' }],
     };
   },
   component: BlogPage,
 });
 
 function BlogPage() {
-  const { locale, posts } = Route.useLoaderData();
+  const { posts } = Route.useLoaderData();
 
   return (
     <div className="bg-background text-foreground flex min-h-screen flex-col">
@@ -81,7 +59,7 @@ function BlogPage() {
                   title={post.title}
                   description={post.description}
                   image={post.image}
-                  date={formatPostDate(post.createdAt, locale)}
+                  date={formatPostDate(post.createdAt, 'en')}
                   authorName={post.authorName}
                   authorImage={post.authorImage}
                 />

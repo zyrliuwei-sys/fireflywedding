@@ -5,16 +5,14 @@ import { baseLocale } from '@/paraglide/runtime.js';
 /**
  * Local blog posts written as MDX files in this directory.
  * File naming: `<slug>.<locale>.mdx` (falls back to the base locale).
- * Register every local post slug here — it drives loading and the sitemap.
+ * Register public editorial posts here. Unregistered template examples are
+ * excluded from the blog and sitemap.
  *
  * This module is isomorphic (safe in client bundles). Database posts are
  * fetched through the server functions in ./server.ts and merged with the
  * local posts via the pure helpers below.
  */
-export const BLOG_POST_SLUGS = [
-  'what-is-shipany',
-  'blocks-vs-components',
-] as const;
+export const BLOG_POST_SLUGS = ['do-satoko-and-shinpei-have-a-child'] as const;
 
 export type BlogPostMeta = {
   title: string;
@@ -110,5 +108,6 @@ export function formatPostDate(dateIso: string, locale: string): string {
     year: 'numeric',
     month: locale === 'zh' ? 'long' : 'short',
     day: 'numeric',
+    timeZone: 'UTC',
   }).format(new Date(dateIso));
 }
