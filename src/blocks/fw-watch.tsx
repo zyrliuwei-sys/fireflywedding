@@ -22,12 +22,19 @@ export function FwWatch({
       <p className="text-foreground/75 mt-6 max-w-3xl text-lg leading-8">
         {m['fw.watch.verified']()}
       </p>
-      <a
-        href={OFFICIAL_ONAIR_URL}
-        className="mt-5 inline-block text-sm underline underline-offset-4"
-      >
-        {m['fw.source']()} ↗
-      </a>
+      <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+        {!full && (
+          <Link
+            href="/blog/firefly-wedding-ep-8"
+            className="text-primary font-medium underline underline-offset-4"
+          >
+            {m['fw.watch.episode_8_link']()}
+          </Link>
+        )}
+        <a href={OFFICIAL_ONAIR_URL} className="underline underline-offset-4">
+          {m['fw.source']()} ↗
+        </a>
+      </div>
       <div className="mt-10 grid gap-5 md:grid-cols-3">
         {[
           {

@@ -12,7 +12,10 @@ import { baseLocale } from '@/paraglide/runtime.js';
  * fetched through the server functions in ./server.ts and merged with the
  * local posts via the pure helpers below.
  */
-export const BLOG_POST_SLUGS = ['do-satoko-and-shinpei-have-a-child'] as const;
+export const BLOG_POST_SLUGS = [
+  'do-satoko-and-shinpei-have-a-child',
+  'firefly-wedding-ep-8',
+] as const;
 
 export type BlogPostMeta = {
   title: string;
